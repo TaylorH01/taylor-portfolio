@@ -16,7 +16,11 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image: url("/BackgroundV1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
   color: var(--text);
   line-height: 1.6;
 }
