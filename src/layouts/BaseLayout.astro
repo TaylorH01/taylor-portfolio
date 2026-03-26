@@ -1,7 +1,10 @@
 ---
 import "../styles/global.css";
 
-const { title = "Taylor Heathcote Portfolio" } = Astro.props;
+const {
+  title = "Taylor Heathcote | Game Design & Production",
+  description = "Creative portfolio for Taylor Heathcote — game design, production, and thoughtful creative work."
+} = Astro.props;
 ---
 
 <html lang="en">
@@ -9,6 +12,12 @@ const { title = "Taylor Heathcote Portfolio" } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#F4EFE6" />
   </head>
 
   <body>
