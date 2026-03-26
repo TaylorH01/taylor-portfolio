@@ -181,6 +181,10 @@ h3 {
   margin-top: 0;
   color: var(--accent-deep);
   font-family: "TaylorBody", serif;
+  text-shadow:
+    0.9px 0 rgba(111, 130, 106, 0.35),
+    -0.9px 0 rgba(111, 130, 106, 0.2),
+    0 0.9px rgba(111, 130, 106, 0.15);
 }
 
 h1 {
