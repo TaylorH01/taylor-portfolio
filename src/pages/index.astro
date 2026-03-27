@@ -3,91 +3,96 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Taylor Heathcote | Game Design & Production" currentPage="home">
-  <div class="split-grid" style="margin-bottom: 2rem; align-items: stretch;">
-    <section>
-      <p class="eyebrow">Game Design • Media Production • Creative Thinking</p>
-      <h2>
-        Hi, I’m Taylor, a creative generalist with a thoughtful eye for
-        design, structure, and player experience.
-      </h2>
-      <p class="lead">
-        I’m interested in game design, production-minded thinking, clear
-        communication, and making ideas feel intentional. I care about
-        polish, readability, and the little details that make creative
-        work feel considered.
-      </p>
+<section class="home-top-grid">
+  <section class="panel intro-panel">
+    <h3>Hi, I’m Taylor, a creative generalist with a background in game development and digital media production.</h3>
 
-      <div class="button-row">
-        <a href="/projects" class="button button-primary">View Projects</a>
-        <a href="/cv" class="button button-secondary">Read CV</a>
-      </div>
-    </section>
+    <p class="lead">
+      This is a general paragraph placeholder that I’ll fill in later. This
+      will cover a general introduction of me, my interests, as well as a
+      light covering of my background and what kind of working I produce.
+      Anything else in this paragraph may also be a generally good explanation
+      about me Taylor Heathcote as well as any relevant information that I
+      think might be useful to know at a glance!
+    </p>
 
-    <section class="panel">
-      <p class="eyebrow">Approach</p>
-      <h2>Thoughtful ideas, clear structure, and a human touch.</h2>
-      <p>
-        I like work that feels carefully shaped — not just functional,
-        but coherent, readable, and memorable.
-      </p>
-
-      <p class="eyebrow" style="margin-top: 2rem;">Focus</p>
-      <p>Design, presentation, systems, and creative direction.</p>
-    </section>
-  </div>
-
-  <section style="margin-bottom: 2rem;">
-    <p class="eyebrow"></p>
-    <h1>Projects</h1>
-
-    <div class="project-grid">
-      <article class="project-card">
-        <p class="eyebrow">UI / UX / Addon Design</p>
-        <h3>GrandRP: Profiles & Utilities</h3>
-        <p>
-          A roleplay addon concept for World of Warcraft focused on profile
-          presentation, usability, and polished character-facing design.
-        </p>
-      </article>
-
-      <article class="project-card">
-        <p class="eyebrow">Narrative / Systems Design</p>
-        <h3>The Clouded Shore</h3>
-        <p>
-          A two-player tabletop campaign concept built around collaborative
-          discovery, magical mystery, and strong character involvement.
-        </p>
-      </article>
-
-      <article class="project-card">
-        <p class="eyebrow">Brand / Frontend / Content Design</p>
-        <h3>Taylor Portfolio Website</h3>
-        <p>
-          A custom-coded personal portfolio built to communicate creativity,
-          polish, and thoughtful design sensibility.
-        </p>
-      </article>
+    <div class="button-row">
+      <a href="/projects" class="button button-primary">View Projects</a>
+      <a href="/cv" class="button button-primary">Read CV</a>
     </div>
   </section>
 
-  <div class="split-grid">
-    <section class="panel">
-      <p class="eyebrow">About Me</p>
-      <h2>A creative mindset with a production instinct.</h2>
-      <p>
-        I enjoy shaping ideas into something legible, intentional, and
-        worth engaging with. That includes design thinking, organisation,
-        communication, presentation, and keeping an eye on how everything
-        fits together.
-      </p>
+  <div class="showcase-column">
+    <section class="panel showcase-video-panel">
+      <div class="video-embed">
+        <iframe
+          src="https://www.youtube.com/embed/jNAhLgSS61U"
+          title="Portfolio showcase video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
     </section>
 
-    <section class="panel">
-      <p class="eyebrow">What I Bring</p>
-      <p><strong>Design awareness:</strong> clarity, tone, structure, and player-facing thinking.</p>
-      <p><strong>Communication:</strong> ideas explained clearly and presented with care.</p>
-      <p><strong>Polish:</strong> attention to detail in both systems and presentation.</p>
-      <p><strong>Creative flexibility:</strong> comfortable across concept, planning, writing, and UI thinking.</p>
+    <section class="panel showcase-text-panel">
+      <h2>Portfolio Showcase</h2>
+      <p>
+        Over the course of ~8 years of study I’ve ventured down many
+        different creative paths. I love to explore different projects,
+        formats and styles and create quality experiences!
+      </p>
     </section>
   </div>
+</section>
+
+<section class="panel feed-panel">
+  <h2 class="feed-title">My Feed - Follow along with my most recent blog posts!</h2>
+
+  <div class="feed-grid">
+    <article class="feed-item">
+      <div class="feed-thumb">
+        <span>Blog Thumbnail</span>
+      </div>
+
+      <div class="feed-copy">
+        <h3>Blog Title</h3>
+        <p>
+          This is a filler paragraph to represent a small description for
+          this unique blog-post!
+        </p>
+        <a href="/blog" class="button button-primary feed-button">Read</a>
+      </div>
+    </article>
+
+    <article class="feed-item">
+      <div class="feed-thumb">
+        <span>Blog Thumbnail</span>
+      </div>
+
+      <div class="feed-copy">
+        <h3>Blog Title</h3>
+        <p>
+          This is a filler paragraph to represent a small description for
+          this unique blog-post!
+        </p>
+        <a href="/blog" class="button button-primary feed-button">Read</a>
+      </div>
+    </article>
+
+    <article class="feed-item">
+      <div class="feed-thumb">
+        <span>Blog Thumbnail</span>
+      </div>
+
+      <div class="feed-copy">
+        <h3>Blog Title</h3>
+        <p>
+          This is a filler paragraph to represent a small description for
+          this unique blog-post!
+        </p>
+        <a href="/blog" class="button button-primary feed-button">Read</a>
+      </div>
+    </article>
+  </div>
+</section>
 </BaseLayout>
