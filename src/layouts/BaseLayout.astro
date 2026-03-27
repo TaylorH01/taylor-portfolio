@@ -3,7 +3,8 @@ import "../styles/global.css";
 
 const {
   title = "Taylor Heathcote | Game Design & Production",
-  description = "Creative portfolio for Taylor Heathcote — game design, production, and thoughtful creative work."
+  description = "Creative portfolio for Taylor Heathcote — game design, production, and thoughtful creative work.",
+  currentPage = ""
 } = Astro.props;
 ---
 
@@ -24,14 +25,18 @@ const {
     <header>
       <div class="container">
         <nav>
-          <a href="/" class="brand">Taylor Heathcote - Portfolio</a>
+          <a href="/" class="brand-block">
+            <span class="brand">Taylor Heathcote - Portfolio</span>
+            <span class="brand-subtitle">Game Design • Media Production • Creative Generalism</span>
+          </a>
           <div class="nav-links">
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/projects">Projects</a>
-            <a href="/cv">CV</a>
-            <a href="/contact">Contact</a>
-          </div>
+             <a href="/" class={currentPage === "home" ? "active" : ""}>Home</a>
+              <a href="/about" class={currentPage === "about" ? "active" : ""}>About</a>
+              <a href="/blog" class={currentPage === "blog" ? "active" : ""}>Blog</a>
+              <a href="/projects" class={currentPage === "projects" ? "active" : ""}>Projects</a>
+              <a href="/cv" class={currentPage === "cv" ? "active" : ""}>CV</a>
+              <a href="/contact" class={currentPage === "contact" ? "active" : ""}>Contact</a>
+            </div>
         </nav>
       </div>
     </header>

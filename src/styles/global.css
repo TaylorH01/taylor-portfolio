@@ -64,12 +64,25 @@ nav {
   gap: 1rem;
 }
 
+.brand-block {
+  display: inline-flex;
+  flex-direction: column;
+  text-decoration: none;
+  gap: 0.15rem;
+}
+
 .brand {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 1.4rem;
+  font-weight: 700;
   color: var(--accent-deep);
   text-decoration: none;
-  font-family: "TaylorBody", serif;
+  line-height: 1.05;
+}
+
+.brand-subtitle {
+  font-size: 0.95rem;
+  color: var(--accent);
+  line-height: 1.1;
 }
 
 .nav-links {
@@ -80,8 +93,21 @@ nav {
 
 .nav-links a {
   text-decoration: none;
-  color: var(--text-muted);
+  color: var(--accent-deep);
   font-weight: 600;
+  position: relative;
+  padding-bottom: 0.2rem;
+}
+
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.0rem;
+  height: 5px;
+  background: var(--accent-deep);
+  border-radius: 999px;
 }
 
 main {
