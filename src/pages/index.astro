@@ -1,5 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+const latestPosts: CollectionEntry<"blog">[] = (await getCollection("blog"))
+  .filter((post: CollectionEntry<"blog">) => !post.data.draft)
+  .sort(
+    (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+      b.data.date.getTime() - a.data.date.getTime()
+  )
+  .slice(0, 3);
 ---
 
 <BaseLayout title="Taylor Heathcote | Game Design & Production" currentPage="home">
@@ -52,59 +61,22 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   </div>
 
   <div class="feed-grid">
-    <article class="feed-card">
-      <div class="feed-thumb">
-        <img src="/default-blog-thumbnail.png" alt="Default blog thumbnail" />
-      </div>
+    {latestPosts.map((post: CollectionEntry<"blog">) => (
+      <article class="feed-card">
+        <div class="feed-thumb">
+          <img src={post.data.thumbnail} alt={post.data.title} />
+        </div>
 
-      <div class="feed-copy">
-        <h3>Blog Title</h3>
-        <p>
-          This is a filler paragraph to represent a small description for
-          this unique blog-post!
-        </p>
-      </div>
+        <div class="feed-copy">
+          <h3>{post.data.title}</h3>
+          <p>{post.data.description}</p>
+        </div>
 
-      <div class="feed-actions">
-        <a href="/blog" class="button button-primary feed-button">Read</a>
-      </div>
-    </article>
-
-    <article class="feed-card">
-      <div class="feed-thumb">
-        <img src="/default-blog-thumbnail.png" alt="Default blog thumbnail" />
-      </div>
-
-      <div class="feed-copy">
-        <h3>Blog Title</h3>
-        <p>
-          This is a filler paragraph to represent a small description for
-          this unique blog-post!
-        </p>
-      </div>
-
-      <div class="feed-actions">
-        <a href="/blog" class="button button-primary feed-button">Read</a>
-      </div>
-    </article>
-
-    <article class="feed-card">
-      <div class="feed-thumb">
-        <img src="/default-blog-thumbnail.png" alt="Default blog thumbnail" />
-      </div>
-
-      <div class="feed-copy">
-        <h3>Blog Title</h3>
-        <p>
-          This is a filler paragraph to represent a small description for
-          this unique blog-post!
-        </p>
-      </div>
-
-      <div class="feed-actions">
-        <a href="/blog" class="button button-primary feed-button">Read</a>
-      </div>
-    </article>
+        <div class="feed-actions">
+          <a href={`/blog/${post.id}`} class="button button-primary feed-button">Read</a>
+        </div>
+      </article>
+    ))}
   </div>
 </section>
 </BaseLayout>

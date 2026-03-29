@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, render, type CollectionEntry } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = (await getCollection("blog"))
+    .filter((post: CollectionEntry<"blog">) => !post.data.draft);
+
+  return posts.map((post: CollectionEntry<"blog">) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={`${post.data.title} | Taylor Heathcote`} currentPage="blog">
+  <article class="panel blog-post-page">
+    <div class="blog-post-hero">
+      <div class="blog-post-hero-image">
+        <img src={post.data.thumbnail} alt={post.data.title} />
+      </div>
+
+      <div class="blog-post-hero-copy">
+        <p class="eyebrow">Blog Post</p>
+        <h1>{post.data.title}</h1>
+        <p class="blog-post-date">
+          {post.data.date.toLocaleDateString("en-GB", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          })}
+        </p>
+        <p class="lead">{post.data.description}</p>
+      </div>
+    </div>
+
+    <div class="blog-post-body">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
