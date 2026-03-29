@@ -46,12 +46,15 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 </section>
 
 <section class="panel feed-panel">
-  <h2 class="feed-title">My Feed - Follow along with my most recent blog posts!</h2>
+  <div class="feed-header">
+    <h2 class="feed-title">Blog Posts</h2>
+    <a href="/blog" class="button button-primary feed-view-all">View All</a>
+  </div>
 
   <div class="feed-grid">
-    <article class="feed-item">
+    <article class="feed-card">
       <div class="feed-thumb">
-        <span>Blog Thumbnail</span>
+        <img src="/default-blog-thumbnail.png" alt="Default blog thumbnail" />
       </div>
 
       <div class="feed-copy">
@@ -60,13 +63,16 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           This is a filler paragraph to represent a small description for
           this unique blog-post!
         </p>
+      </div>
+
+      <div class="feed-actions">
         <a href="/blog" class="button button-primary feed-button">Read</a>
       </div>
     </article>
 
-    <article class="feed-item">
+    <article class="feed-card">
       <div class="feed-thumb">
-        <span>Blog Thumbnail</span>
+        <img src="/default-blog-thumbnail.png" alt="Default blog thumbnail" />
       </div>
 
       <div class="feed-copy">
@@ -75,13 +81,16 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           This is a filler paragraph to represent a small description for
           this unique blog-post!
         </p>
+      </div>
+
+      <div class="feed-actions">
         <a href="/blog" class="button button-primary feed-button">Read</a>
       </div>
     </article>
 
-    <article class="feed-item">
+    <article class="feed-card">
       <div class="feed-thumb">
-        <span>Blog Thumbnail</span>
+        <img src="/default-blog-thumbnail.png" alt="Default blog thumbnail" />
       </div>
 
       <div class="feed-copy">
@@ -90,6 +99,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           This is a filler paragraph to represent a small description for
           this unique blog-post!
         </p>
+      </div>
+
+      <div class="feed-actions">
         <a href="/blog" class="button button-primary feed-button">Read</a>
       </div>
     </article>
