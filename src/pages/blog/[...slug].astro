@@ -16,29 +16,43 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BaseLayout title={`${post.data.title} | Taylor Heathcote`} currentPage="blog">
-  <article class="panel blog-post-page">
-    <div class="blog-post-hero">
-      <div class="blog-post-hero-image">
-        <img src={post.data.thumbnail} alt={post.data.title} />
+<BaseLayout
+  title={`${post.data.title} | Blog | Taylor Heathcote`}
+  description={post.data.description}
+  currentPage="blog"
+>
+  <section class="blog-post-page">
+    <div class="panel">
+      <div class="blog-post-topbar">
+        <a href="/blog" class="button button-secondary">← Back to Blog</a>
       </div>
 
-      <div class="blog-post-hero-copy">
-        <p class="eyebrow">Blog Post</p>
-        <h1>{post.data.title}</h1>
-        <p class="blog-post-date">
-          {post.data.date.toLocaleDateString("en-GB", {
-            day: "numeric",
-            month: "long",
-            year: "numeric",
-          })}
-        </p>
-        <p class="lead">{post.data.description}</p>
-      </div>
-    </div>
+      <div class="blog-post-hero">
+        <div class="blog-post-hero-copy">
+          <p class="blog-post-date">
+            {post.data.date.toLocaleDateString("en-GB", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            })}
+          </p>
 
-    <div class="blog-post-body">
-      <Content />
+          <h1>{post.data.title}</h1>
+          <p class="lead">{post.data.description}</p>
+        </div>
+
+        <div class="blog-post-hero-image">
+          <img
+            src={post.data.thumbnail}
+            alt={post.data.title}
+            loading="eager"
+          />
+        </div>
+      </div>
+
+      <article class="blog-post-body">
+        <Content />
+      </article>
     </div>
-  </article>
+  </section>
 </BaseLayout>
