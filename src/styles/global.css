@@ -775,18 +775,18 @@ h1 {
 }
 
 .blog-post-hero-copy {
-  max-width: 32rem;
+  max-width: 40rem;
 }
 
 .blog-post-hero-copy h1 {
   font-size: clamp(2rem, 3vw, 2.8rem);
   line-height: 1.08;
   margin: 0.35rem 0 0.85rem;
-  max-width: 10ch;
+  max-width: none;
 }
 
 .blog-post-hero-copy .lead {
-  max-width: 34ch;
+  max-width: 56ch;
   margin: 0;
 }
 
