@@ -8,34 +8,51 @@ const posts: CollectionEntry<"blog">[] = (await getCollection("blog"))
     (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
       b.data.date.getTime() - a.data.date.getTime()
   );
+
+const latestPost = posts[0];
 ---
 
 <BaseLayout title="Blog | Taylor Heathcote" currentPage="blog">
   <section class="panel blog-intro-panel">
-    
-    <h2>My Blog</h2>
+    <p class="eyebrow">Blog</p>
+    <h2>Thoughts, updates, and works in progress.</h2>
+
     <p class="lead">
-      Welcome to my blog page, I make posts about all sorts of things like project reports, thoughts, personal updates and more!
+      A space for development notes, project reflections, portfolio progress,
+      and longer-form writing as the site continues to grow.
     </p>
+
+    {latestPost && (
+      <p class="blog-intro-meta">
+        Latest post:
+        <a href={`/blog/${latestPost.id}`}>{latestPost.data.title}</a>
+      </p>
+    )}
   </section>
 
   <section class="panel blog-list-panel">
     <div class="blog-list-header">
-     <h3>Recent Posts</h3>
-     <p>{posts.length} posts found</p>
+      <div class="blog-list-heading">
+        <p class="blog-list-kicker">Archive</p>
+        <h2>Recent Posts</h2>
+        <p class="blog-list-subtext">
+          Writing, updates, and works in progress collected in one place.
+        </p>
+      </div>
+
+      <p class="blog-post-count">{posts.length} posts found</p>
     </div>
 
     <div class="blog-list-grid">
       {posts.map((post: CollectionEntry<"blog">) => (
         <article class="blog-post-card">
-          <div class="blog-post-thumb">
-            <img src={post.data.thumbnail} alt={post.data.title} />
-          </div>
+          <a href={`/blog/${post.id}`} class="blog-post-card-link">
+            <div class="blog-post-thumb">
+              <img src={post.data.thumbnail} alt={post.data.title} />
+            </div>
+          </a>
 
           <div class="blog-post-copy">
-            <h3>{post.data.title}</h3>
-            <p>{post.data.description}</p>
-
             <p class="blog-post-date">
               {post.data.date.toLocaleDateString("en-GB", {
                 day: "numeric",
@@ -43,10 +60,20 @@ const posts: CollectionEntry<"blog">[] = (await getCollection("blog"))
                 year: "numeric",
               })}
             </p>
+
+            <h3>
+              <a href={`/blog/${post.id}`} class="blog-post-title-link">
+                {post.data.title}
+              </a>
+            </h3>
+
+            <p>{post.data.description}</p>
           </div>
 
           <div class="blog-post-actions">
-            <a href={`/blog/${post.id}`} class="button button-primary">Read</a>
+            <a href={`/blog/${post.id}`} class="button button-primary blog-read-button">
+              Read Post
+            </a>
           </div>
         </article>
       ))}
