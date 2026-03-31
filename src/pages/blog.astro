@@ -14,21 +14,20 @@ const latestPost = posts[0];
 
 <BaseLayout title="Blog | Taylor Heathcote" currentPage="blog">
   <section class="panel blog-intro-panel">
-    <p class="eyebrow">Blog</p>
-    <h2>Thoughts, updates, and works in progress.</h2>
+  <h1>Blog</h1>
 
-    <p class="lead">
-      A space for development notes, project reflections, portfolio progress,
-      and longer-form writing as the site continues to grow.
+  <p class="lead">
+    Development notes, project reflections, portfolio progress, and longer-form
+    writing as the site continues to grow.
+  </p>
+
+  {latestPost && (
+    <p class="blog-intro-meta">
+      Latest post:
+      <a href={`/blog/${latestPost.id}`}>{latestPost.data.title}</a>
     </p>
-
-    {latestPost && (
-      <p class="blog-intro-meta">
-        Latest post:
-        <a href={`/blog/${latestPost.id}`}>{latestPost.data.title}</a>
-      </p>
-    )}
-  </section>
+  )}
+</section>
 
   <section class="panel blog-list-panel">
     <div class="blog-list-header">
