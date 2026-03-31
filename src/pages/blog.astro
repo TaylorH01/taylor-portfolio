@@ -12,17 +12,16 @@ const posts: CollectionEntry<"blog">[] = (await getCollection("blog"))
 
 <BaseLayout title="Blog | Taylor Heathcote" currentPage="blog">
   <section class="panel blog-intro-panel">
-    <p class="eyebrow">Taylor's Blog</p>
-    <h3>Thoughts, updates, and works in progress.</h3>
+    
+    <h2>My Blog</h2>
     <p class="lead">
-      This page collects blog posts, development notes, reflections, updates,
-      and other longer-form writing as the site grows.
+      Welcome to my blog page, I make posts about all sorts of things like project reports, thoughts, personal updates and more!
     </p>
   </section>
 
   <section class="panel blog-list-panel">
     <div class="blog-list-header">
-     <h2>Recent Posts</h2>
+     <h3>Recent Posts</h3>
      <p>{posts.length} posts found</p>
     </div>
 
@@ -34,6 +33,9 @@ const posts: CollectionEntry<"blog">[] = (await getCollection("blog"))
           </div>
 
           <div class="blog-post-copy">
+            <h3>{post.data.title}</h3>
+            <p>{post.data.description}</p>
+
             <p class="blog-post-date">
               {post.data.date.toLocaleDateString("en-GB", {
                 day: "numeric",
@@ -41,9 +43,6 @@ const posts: CollectionEntry<"blog">[] = (await getCollection("blog"))
                 year: "numeric",
               })}
             </p>
-
-            <h3>{post.data.title}</h3>
-            <p>{post.data.description}</p>
           </div>
 
           <div class="blog-post-actions">

@@ -130,9 +130,8 @@ footer {
 }
 
 .eyebrow {
-  text-transform: uppercase;
   letter-spacing: 0.01em;
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   font-weight: 1000;
   color: var(--accent-deep);
 }
@@ -425,11 +424,19 @@ h1 {
 }
 
 .blog-intro-panel {
-  margin-bottom: 2rem;
+  margin: 0 auto 2rem;
+  max-width: 650px;
+  text-align: center;
+}
+
+.blog-intro-panel .lead {
+  max-width: 62ch;
+  margin: 0.75rem auto 0;
 }
 
 .blog-list-panel {
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .blog-list-header {
