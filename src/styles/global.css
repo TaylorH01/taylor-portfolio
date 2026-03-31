@@ -137,7 +137,7 @@ footer {
 }
 
 .lead {
-  color: var(--text-muted);
+  color: var(--text);
   max-width: 60ch;
 }
 
@@ -195,6 +195,7 @@ footer {
 .button-primary {
   background: var(--accent);
   color: white;
+  border: 5px solid var (--accent-deep);
 }
 
 .button-secondary {
@@ -385,7 +386,7 @@ h1 {
 
 .feed-copy p {
   margin: 0;
-  color: var(--text-muted);
+  color: var(--text);
   line-height: 1.55;
 }
 
@@ -449,7 +450,7 @@ h1 {
 
 .blog-intro-meta {
   margin: 1.1rem 0 0;
-  color: var(--text-muted);
+  color: var(--text);
   font-size: 0.98rem;
 }
 
@@ -471,19 +472,11 @@ h1 {
   gap: 1rem;
   margin-bottom: 1.75rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 5px solid var(--border);
 }
 
 .blog-list-heading {
   max-width: 42rem;
-}
-
-.blog-list-kicker {
-  margin: 0 0 0.35rem;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
 }
 
 .blog-list-header h2 {
@@ -492,7 +485,7 @@ h1 {
 
 .blog-list-subtext {
   margin: 0.45rem 0 0;
-  color: var(--text-muted);
+  color: var(--text);
 }
 
 .blog-post-count {
@@ -575,7 +568,7 @@ h1 {
 
 .blog-post-copy p:last-child {
   margin: 0.15rem 0 0;
-  color: var(--text-muted);
+  color: var(--text);
   line-height: 1.6;
 }
 
@@ -678,7 +671,7 @@ h1 {
   max-width: 680px;
   margin: 0 auto;
   padding-top: 1.25rem;
-  border-top: 1px solid var(--border);
+  border-top: 5px solid var(--border);
   font-size: 1.05rem;
   line-height: 1.8;
 }
