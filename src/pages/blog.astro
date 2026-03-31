@@ -14,28 +14,29 @@ const latestPost = posts[0];
 
 <BaseLayout title="Blog | Taylor Heathcote" currentPage="blog">
   <section class="panel blog-intro-panel">
-  <h1>Blog</h1>
+    <h1>Blog</h1>
 
-  <p class="lead">
-    Development notes, project reflections, portfolio progress, and longer-form
-    writing as the site continues to grow.
-  </p>
-
-  {latestPost && (
-    <p class="blog-intro-meta">
-      Latest post:
-      <a href={`/blog/${latestPost.id}`}>{latestPost.data.title}</a>
+    <p class="lead">
+      Development notes, project reflections, portfolio progress, and longer-form
+      writing as the site continues to grow.
     </p>
-  )}
-</section>
+
+    {latestPost && (
+      <p class="blog-intro-meta">
+        Latest post:
+        <a href={`/blog/${latestPost.id}`}>{latestPost.data.title}</a>
+      </p>
+    )}
+  </section>
 
   <section class="panel blog-list-panel">
-    <div class="blog-list-heading">
-      <h2>Posts</h2>
-      <p class="blog-list-subtext">
-        Writing, updates, and works in progress collected in one place.
-      </p>
-    </div>
+    <div class="blog-list-header">
+      <div class="blog-list-heading">
+        <h2>Posts</h2>
+        <p class="blog-list-subtext">
+          Writing, updates, and works in progress collected in one place.
+        </p>
+      </div>
 
       <p class="blog-post-count">{posts.length} posts found</p>
     </div>
@@ -68,7 +69,10 @@ const latestPost = posts[0];
           </div>
 
           <div class="blog-post-actions">
-            <a href={`/blog/${post.id}`} class="button button-primary blog-read-button">
+            <a
+              href={`/blog/${post.id}`}
+              class="button button-primary blog-read-button"
+            >
               Read Post
             </a>
           </div>
