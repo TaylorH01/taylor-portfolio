@@ -4,21 +4,21 @@ import "../styles/global.css";
 const {
   title = "Taylor Heathcote | Game Design & Production",
   description = "Creative portfolio for Taylor Heathcote — game design, production, and thoughtful creative work.",
-  currentPage = ""
+  currentPage = "",
 } = Astro.props;
 ---
 
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
 
     <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta name="theme-color" content="#F4EFE6" />
   </head>
 
   <body>
@@ -26,17 +26,27 @@ const {
       <div class="container">
         <nav>
           <a href="/" class="brand-block">
-            <span class="brand">Taylor Heathcote - Portfolio</span>
+            <span class="brand">Taylor Heathcote</span>
             <span class="brand-subtitle">Game Design • Media Production • Creative Generalism</span>
           </a>
-          <div class="nav-links">
-             <a href="/" class={currentPage === "home" ? "active" : ""}>Home</a>
+
+          <div class="nav-cluster">
+            <div class="nav-links">
+              <a href="/" class={currentPage === "home" ? "active" : ""}>Home</a>
               <a href="/about" class={currentPage === "about" ? "active" : ""}>About</a>
-              <a href="/blog" class={currentPage === "blog" ? "active" : ""}>Blog</a>
               <a href="/projects" class={currentPage === "projects" ? "active" : ""}>Projects</a>
-              <a href="/cv" class={currentPage === "cv" ? "active" : ""}>CV</a>
+              <a href="/blog" class={currentPage === "blog" ? "active" : ""}>Blog</a>
               <a href="/contact" class={currentPage === "contact" ? "active" : ""}>Contact</a>
             </div>
+
+            <a
+              href="/Taylor-Heathcote-CV-2026.pdf"
+              class="button button-primary nav-cv-button"
+              download
+            >
+              Download CV
+            </a>
+          </div>
         </nav>
       </div>
     </header>

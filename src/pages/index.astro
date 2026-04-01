@@ -27,7 +27,7 @@ const latestPosts: CollectionEntry<"blog">[] = (await getCollection("blog"))
 
     <div class="button-row">
       <a href="/projects" class="button button-primary">View Projects</a>
-      <a href="/cv" class="button button-primary">Read CV</a>
+      <a href="/about" class="button button-primary">About Me</a>
     </div>
   </section>
 
@@ -56,24 +56,42 @@ const latestPosts: CollectionEntry<"blog">[] = (await getCollection("blog"))
 
 <section class="panel feed-panel">
   <div class="feed-header">
-    <h2 class="feed-title">Blog Posts</h2>
-    <a href="/blog" class="button button-primary feed-view-all">View All</a>
+    <h2 class="feed-title">
+      <a href="/blog" class="feed-title-link">Blog</a>
+    </h2>
   </div>
 
   <div class="feed-grid">
     {latestPosts.map((post: CollectionEntry<"blog">) => (
       <article class="feed-card">
-        <div class="feed-thumb">
-          <img src={post.data.thumbnail} alt={post.data.title} />
-        </div>
+        <a href={`/blog/${post.id}`} class="feed-card-link">
+          <div class="feed-thumb">
+            <img src={post.data.thumbnail} alt={post.data.title} />
+          </div>
+        </a>
 
         <div class="feed-copy">
-          <h3>{post.data.title}</h3>
+          <p class="feed-date">
+            {post.data.date.toLocaleDateString("en-GB", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            })}
+          </p>
+
+          <h3>
+            <a href={`/blog/${post.id}`} class="feed-title-card-link">
+              {post.data.title}
+            </a>
+          </h3>
+
           <p>{post.data.description}</p>
         </div>
 
         <div class="feed-actions">
-          <a href={`/blog/${post.id}`} class="button button-primary feed-button">Read</a>
+          <a href={`/blog/${post.id}`} class="button button-primary feed-button">
+            Read Post
+          </a>
         </div>
       </article>
     ))}

@@ -2,43 +2,219 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="About | Taylor Heathcote" currentPage="about">
-  <div class="split-grid">
-    <section class="panel">
-      <p class="eyebrow">About</p>
-      <h1>Thoughtful, creative, and quietly detail-obsessed.</h1>
-      <p>
-        I’m a creative generalist with a background in game design and a
-        strong interest in structure, presentation, and player-facing
-        experience. I like work that feels considered — visually,
-        emotionally, and practically.
-      </p>
-      <p>
-        My interests sit around design thinking, communication,
-        organisation, narrative and systems ideas, and the kind of polish
-        that makes a project feel coherent rather than stitched together at
-        the last second.
-      </p>
-    </section>
+<BaseLayout
+  title="About | Taylor Heathcote"
+  description="A visual profile for Taylor Heathcote — game design graduate, QA-minded creative, and detail-focused generalist."
+  currentPage="about"
+>
+  <section class="about-sheet">
+    <div class="about-sheet-grid">
+      <section class="panel about-card about-profile-card">
+        <p class="sheet-label">Character Sheet</p>
+        <h1>Taylor Heathcote</h1>
+        <p class="about-role">
+          Creative generalist with a background in game design, QA, digital
+          media, and thoughtful presentation.
+        </p>
 
-    <section class="panel">
-      <p class="eyebrow">Background</p>
-      <h2>Education and focus</h2>
-      <p>
-        I completed a <strong>First-Class BSc in Game Design</strong> in
-        2024. Through study and self-directed work, I’ve developed an
-        interest in creative problem solving, design communication, project
-        framing, and building experiences that feel intentional.
-      </p>
-      <p>
-        I’m especially drawn to games and creative work with strong
-        identity, thoughtful systems, and a clear sense of tone.
-      </p>
+        <p class="about-summary">
+          I’m interested in work that feels intentional — visually,
+          structurally, and emotionally. My strengths sit around creative
+          problem-solving, design communication, player-facing thinking, and the
+          kind of polish that helps a project feel coherent rather than patched
+          together.
+        </p>
 
-      <div class="button-row">
-        <a href="/" class="button button-primary">Back Home</a>
-        <a href="/projects" class="button button-secondary">Projects Next</a>
-      </div>
-    </section>
-  </div>
+        <div class="about-tag-list">
+          <span class="about-tag">Game Design</span>
+          <span class="about-tag">QA Mindset</span>
+          <span class="about-tag">UI / UX Aware</span>
+          <span class="about-tag">Creative Problem-Solving</span>
+          <span class="about-tag">Detail-Focused</span>
+        </div>
+      </section>
+
+      <section class="panel about-card about-facts-card">
+        <h2>Quick Facts</h2>
+
+        <dl class="about-facts">
+          <div>
+            <dt>Class</dt>
+            <dd>Creative Generalist</dd>
+          </div>
+
+          <div>
+            <dt>Focus</dt>
+            <dd>Game Design / QA / Digital Media</dd>
+          </div>
+
+          <div>
+            <dt>Location</dt>
+            <dd>Nottingham, England</dd>
+          </div>
+
+          <div>
+            <dt>Education</dt>
+            <dd>BSc (Hons) Computer Games Design — First Class</dd>
+          </div>
+
+          <div>
+            <dt>Status</dt>
+            <dd>Building portfolio and seeking opportunities</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="panel about-card about-attributes-card">
+        <h2>Attributes</h2>
+
+        <div class="attribute-list">
+          <div class="attribute-row">
+            <span>Creativity</span>
+            <div class="attribute-bar"><span style="width: 90%"></span></div>
+          </div>
+
+          <div class="attribute-row">
+            <span>Problem-Solving</span>
+            <div class="attribute-bar"><span style="width: 85%"></span></div>
+          </div>
+
+          <div class="attribute-row">
+            <span>Communication</span>
+            <div class="attribute-bar"><span style="width: 65%"></span></div>
+          </div>
+
+          <div class="attribute-row">
+            <span>Detail Focus</span>
+            <div class="attribute-bar"><span style="width: 90%"></span></div>
+          </div>
+
+          <div class="attribute-row">
+            <span>Adaptability</span>
+            <div class="attribute-bar"><span style="width: 80%"></span></div>
+          </div>
+
+          <div class="attribute-row">
+            <span>Collaboration</span>
+            <div class="attribute-bar"><span style="width: 78%"></span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel about-card about-toolkit-card">
+        <h2>Proficiencies</h2>
+
+        <div class="tool-group">
+          <h3>Engines & Workflow</h3>
+          <div class="about-chip-list">
+            <span class="about-chip">Unreal Engine 4 & 5</span>
+            <span class="about-chip">Unity</span>
+            <span class="about-chip">Jira</span>
+            <span class="about-chip">GitHub</span>
+          </div>
+        </div>
+
+        <div class="tool-group">
+          <h3>Creative Software</h3>
+          <div class="about-chip-list">
+            <span class="about-chip">Adobe Creative Suite</span>
+            <span class="about-chip">Autodesk Maya</span>
+            <span class="about-chip">Blender</span>
+            <span class="about-chip">Microsoft Office</span>
+          </div>
+        </div>
+
+        <div class="tool-group">
+          <h3>Code & Technical</h3>
+          <div class="about-chip-list">
+            <span class="about-chip">C++ (Intermediate)</span>
+            <span class="about-chip">C# (Novice)</span>
+            <span class="about-chip">UI / UX Awareness</span>
+            <span class="about-chip">Design Documentation</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel about-card about-experience-card">
+        <h2>Experience Log</h2>
+
+        <div class="experience-entry">
+          <h3>Pixel Squad — Video Game QA Tester</h3>
+          <p>
+            Playtested an early unreleased mobile game build and provided
+            detailed feedback on gameplay issues, inconsistencies, and the
+            overall player experience.
+          </p>
+        </div>
+
+        <div class="experience-entry">
+          <h3>River Horse Ltd — Board Game QA Tester</h3>
+          <p>
+            Conducted rigorous playtesting on an unreleased board game,
+            identifying gameplay issues and contributing improvement ideas from a
+            player-focused perspective.
+          </p>
+        </div>
+
+        <div class="experience-entry">
+          <h3>Browne Jacobson LLP — IT Support</h3>
+          <p>
+            Supported senior IT staff, handled report-related tasks, and
+            contributed early concept thinking toward a website overhaul.
+          </p>
+        </div>
+
+        <div class="experience-entry">
+          <h3>UK Glass Products — Administrative Assistant</h3>
+          <p>
+            Built organisation, reporting, and coordination skills through
+            practical support work in a professional office environment.
+          </p>
+        </div>
+      </section>
+
+      <section class="panel about-card about-education-card">
+        <h2>Education</h2>
+
+        <div class="education-entry">
+          <h3>University of Staffordshire</h3>
+          <p>BSc (Honours) Computer Games Design — First Class</p>
+          <p class="muted">September 2021 – June 2024</p>
+        </div>
+
+        <div class="education-entry">
+          <h3>Confetti Institute of Creative Technologies</h3>
+          <p>BTEC Level 3 Creative Digital Media — Distinction / Merit / Merit</p>
+          <p class="muted">September 2018 – June 2020</p>
+        </div>
+
+        <div class="education-entry">
+          <h3>Additional learning</h3>
+          <p>Deloitte Data Analytics Job Simulation — Forage</p>
+          <p class="muted">December 2025</p>
+        </div>
+      </section>
+
+      <section class="panel about-card about-focus-card">
+        <h2>Current Focus</h2>
+        <p>
+          Right now I’m focused on building a stronger portfolio, refining how I
+          present my work, and moving toward early-career opportunities where I
+          can contribute through design thinking, QA awareness, communication,
+          and thoughtful creative execution.
+        </p>
+
+        <div class="button-row about-actions">
+          <a
+            href="/Taylor-Heathcote-CV-2026.pdf"
+            class="button button-primary"
+            download
+          >
+            Download Full CV
+          </a>
+          <a href="/contact" class="button button-secondary">Contact Me</a>
+        </div>
+      </section>
+    </div>
+  </section>
 </BaseLayout>
