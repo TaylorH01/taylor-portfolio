@@ -1,0 +1,171 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, render, type CollectionEntry } from "astro:content";
+
+export async function getStaticPaths() {
+  const projects = (await getCollection("projects"))
+    .filter((project: CollectionEntry<"projects">) => !project.data.draft);
+
+  return projects.map((project: CollectionEntry<"projects">) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const gallery = project.data.gallery ?? [];
+---
+
+<BaseLayout
+  title={`${project.data.title} | Projects | Taylor Heathcote`}
+  description={project.data.description}
+  currentPage="projects"
+>
+  <section class="project-detail-page">
+    <div class="panel project-detail-hero-panel">
+      <div class="project-detail-topbar">
+        <a href="/projects" class="button button-primary">← Back to Projects</a>
+      </div>
+
+      <div class="project-detail-hero">
+        <div class="project-detail-main">
+          <p class="project-kicker">{project.data.category}</p>
+          <h1>{project.data.title}</h1>
+          <p class="project-status">{project.data.status}</p>
+          <p class="lead">{project.data.description}</p>
+
+          <div class="project-role-list">
+            {project.data.roles.map((role) => (
+              <span class="project-role-chip">{role}</span>
+            ))}
+          </div>
+        </div>
+
+        <aside class="project-detail-meta panel project-meta-panel">
+          <h2>Project Record</h2>
+          <dl class="project-meta-list">
+            <div>
+              <dt>Status</dt>
+              <dd>{project.data.status}</dd>
+            </div>
+            <div>
+              <dt>Category</dt>
+              <dd>{project.data.category}</dd>
+            </div>
+            {project.data.year && (
+              <div>
+                <dt>Year</dt>
+                <dd>{project.data.year}</dd>
+              </div>
+            )}
+          </dl>
+        </aside>
+      </div>
+    </div>
+
+    {project.data.trailerEmbed && (
+      <section class="panel project-trailer-panel">
+        <div class="project-section-header">
+          <h2>Trailer / Showcase</h2>
+        </div>
+
+        <div class="project-video-embed">
+          <iframe
+            src={project.data.trailerEmbed}
+            title={`${project.data.title} trailer`}
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          />
+        </div>
+      </section>
+    )}
+
+    {gallery.length > 0 && (
+      <section class="panel project-gallery-panel">
+        <div class="project-section-header">
+          <h2>Gallery</h2>
+        </div>
+
+        <div class="project-gallery-main">
+          <img
+            id="project-gallery-main-image"
+            src={gallery[0].src}
+            alt={gallery[0].alt}
+          />
+          {gallery[0].caption && (
+            <p id="project-gallery-caption" class="project-gallery-caption">
+              {gallery[0].caption}
+            </p>
+          )}
+        </div>
+
+        <div class="project-gallery-controls">
+          {gallery.map((image, index) => (
+            <button
+              type="button"
+              class={`project-gallery-button ${index === 0 ? "active" : ""}`}
+              data-index={index}
+            >
+              {index + 1}
+            </button>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {project.data.links.length > 0 && (
+      <section class="panel project-links-panel">
+        <div class="project-section-header">
+          <h2>Links</h2>
+        </div>
+
+        <div class="button-row">
+          {project.data.links.map((link) => (
+            <a href={link.url} class="button button-secondary" target="_blank" rel="noreferrer">
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <section class="panel project-writeup-panel">
+      <div class="project-section-header">
+        <h2>Project Breakdown</h2>
+      </div>
+
+      <article class="project-detail-body">
+        <Content />
+      </article>
+    </section>
+  </section>
+
+  {gallery.length > 0 && (
+    <script is:inline define:vars={{ gallery }}>
+      const galleryButtons = document.querySelectorAll(".project-gallery-button");
+      const mainImage = document.getElementById("project-gallery-main-image");
+      const caption = document.getElementById("project-gallery-caption");
+      const galleryData = gallery;
+
+      galleryButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const index = Number(button.dataset.index);
+          const selected = galleryData[index];
+          if (!selected || !mainImage) return;
+
+          mainImage.src = selected.src;
+          mainImage.alt = selected.alt;
+
+          if (caption) {
+            caption.textContent = selected.caption ?? "";
+          }
+
+          galleryButtons.forEach((btn) => btn.classList.remove("active"));
+          button.classList.add("active");
+        });
+      });
+    </script>
+  )}
+</BaseLayout>

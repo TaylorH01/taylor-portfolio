@@ -1,41 +1,155 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+const projects: CollectionEntry<"projects">[] = (await getCollection("projects"))
+  .filter((project: CollectionEntry<"projects">) => !project.data.draft)
+  .sort(
+    (a: CollectionEntry<"projects">, b: CollectionEntry<"projects">) =>
+      a.data.order - b.data.order
+  );
+
+const featuredProjects = projects.filter((project) => project.data.bucket === "featured");
+const collectionProjects = projects.filter((project) => project.data.bucket === "collection");
+const currentProjects = projects.filter((project) => project.data.bucket === "current");
 ---
 
-<BaseLayout title="Projects | Taylor Heathcote" currentPage="projects">
-  <p class="eyebrow">Projects</p>
-  <h1>Selected work</h1>
-  <p class="lead">
-    These projects are here to show how I think, what I contribute, and
-    the kind of creative problems I enjoy working on.
-  </p>
+<BaseLayout
+  title="Projects | Taylor Heathcote"
+  description="Detailed project work spanning game design, level design, UI/UX, writing, and in-development creative work."
+  currentPage="projects"
+>
+  <section class="panel projects-hero-panel">
+    <p class="eyebrow">Projects</p>
+    <h1>Selected work, design collections, and ongoing projects.</h1>
+    <p class="lead">
+      A closer look at the projects that best show how I think, what I contribute,
+      and the kinds of creative problems I enjoy solving.
+    </p>
+  </section>
 
-  <div class="project-grid">
-    <article class="project-card">
-      <p class="eyebrow">UI / UX / Addon Design</p>
-      <h3>GrandRP: Profiles & Utilities</h3>
-      <p>
-        A roleplay addon concept for World of Warcraft focused on profile
-        presentation, usability, and polished character-facing design.
-      </p>
-    </article>
+  <section class="panel projects-section-panel">
+    <div class="projects-section-header">
+      <div>
+        <h2>Featured Work</h2>
+        <p class="projects-section-subtext">
+          Larger projects and stronger portfolio pieces with more detailed breakdowns.
+        </p>
+      </div>
+    </div>
 
-    <article class="project-card">
-      <p class="eyebrow">Narrative / Systems Design</p>
-      <h3>The Clouded Shore</h3>
-      <p>
-        A two-player tabletop campaign concept built around collaborative
-        discovery, magical mystery, and strong character involvement.
-      </p>
-    </article>
+    <div class="featured-project-grid">
+      {featuredProjects.map((project) => (
+        <article class="featured-project-card">
+          <a href={`/projects/${project.id}`} class="featured-project-thumb-link">
+            <div class="featured-project-thumb">
+              <img src={project.data.thumbnail} alt={project.data.title} />
+            </div>
+          </a>
 
-    <article class="project-card">
-      <p class="eyebrow">Brand / Frontend / Content Design</p>
-      <h3>Taylor Portfolio Website</h3>
-      <p>
-        A custom-coded personal portfolio built to communicate creativity,
-        polish, and thoughtful design sensibility.
-      </p>
-    </article>
-  </div>
+          <div class="featured-project-copy">
+            <p class="project-kicker">{project.data.category}</p>
+            <h3>
+              <a href={`/projects/${project.id}`} class="project-title-link">
+                {project.data.title}
+              </a>
+            </h3>
+            <p class="project-status">{project.data.status}</p>
+            <p>{project.data.description}</p>
+
+            <div class="project-role-list">
+              {project.data.roles.map((role) => (
+                <span class="project-role-chip">{role}</span>
+              ))}
+            </div>
+          </div>
+
+          <div class="featured-project-actions">
+            <a href={`/projects/${project.id}`} class="button button-primary">
+              View Project
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="panel projects-section-panel">
+    <div class="projects-section-header">
+      <div>
+        <h2>Collections & Supporting Work</h2>
+        <p class="projects-section-subtext">
+          Supporting pieces, grouped work, and focused collections that still deserve their own pages.
+        </p>
+      </div>
+    </div>
+
+    <div class="project-card-grid">
+      {collectionProjects.map((project) => (
+        <article class="project-card-small">
+          <a href={`/projects/${project.id}`} class="project-card-small-thumb-link">
+            <div class="project-card-small-thumb">
+              <img src={project.data.thumbnail} alt={project.data.title} />
+            </div>
+          </a>
+
+          <div class="project-card-small-copy">
+            <p class="project-kicker">{project.data.category}</p>
+            <h3>
+              <a href={`/projects/${project.id}`} class="project-title-link">
+                {project.data.title}
+              </a>
+            </h3>
+            <p>{project.data.description}</p>
+          </div>
+
+          <div class="project-card-small-actions">
+            <a href={`/projects/${project.id}`} class="button button-primary">
+              View Project
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="panel projects-section-panel">
+    <div class="projects-section-header">
+      <div>
+        <h2>In Development</h2>
+        <p class="projects-section-subtext">
+          Ongoing and unreleased work that I’m actively building out.
+        </p>
+      </div>
+    </div>
+
+    <div class="project-card-grid">
+      {currentProjects.map((project) => (
+        <article class="project-card-small project-card-current">
+          <a href={`/projects/${project.id}`} class="project-card-small-thumb-link">
+            <div class="project-card-small-thumb">
+              <img src={project.data.thumbnail} alt={project.data.title} />
+            </div>
+          </a>
+
+          <div class="project-card-small-copy">
+            <p class="project-kicker">{project.data.category}</p>
+            <h3>
+              <a href={`/projects/${project.id}`} class="project-title-link">
+                {project.data.title}
+              </a>
+            </h3>
+            <p class="project-status">{project.data.status}</p>
+            <p>{project.data.description}</p>
+          </div>
+
+          <div class="project-card-small-actions">
+            <a href={`/projects/${project.id}`} class="button button-primary">
+              View Project
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
 </BaseLayout>
