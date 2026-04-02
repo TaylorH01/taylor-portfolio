@@ -10,31 +10,59 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   <section class="about-sheet">
     <div class="about-sheet-grid">
       <section class="panel about-card about-profile-card">
-        <div class="about-card-header">
-          <h2>Profile Sheet</h2>
-        </div>
+        <div class="about-profile-layout">
+          <div class="about-profile-main">
+            <div class="about-card-header">
+              <h2>Profile Sheet</h2>
+            </div>
 
-        <h3>Taylor Heathcote</h3>
+            <h1>Taylor Heathcote</h1>
 
-        <p class="about-role">
-          Creative generalist with a background in game design, QA, digital
-          media, and thoughtful presentation.
-        </p>
+            <p class="about-role">
+              Creative generalist with a background in game design, QA, digital
+              media, and thoughtful presentation.
+            </p>
 
-        <p class="about-summary">
-          I’m interested in work that feels intentional — visually,
-          structurally, and emotionally. My strengths sit around creative
-          problem-solving, design communication, player-facing thinking, and the
-          kind of polish that helps a project feel coherent rather than patched
-          together.
-        </p>
+            <p class="about-summary">
+              I’m interested in work that feels intentional — visually,
+              structurally, and emotionally. My strengths sit around creative
+              problem-solving, design communication, player-facing thinking, and
+              the kind of polish that helps a project feel coherent rather than
+              patched together.
+            </p>
 
-        <div class="about-tag-list">
-          <span class="about-tag">Game Design</span>
-          <span class="about-tag">QA Mindset</span>
-          <span class="about-tag">UI / UX Aware</span>
-          <span class="about-tag">Creative Problem-Solving</span>
-          <span class="about-tag">Detail-Focused</span>
+            <div class="about-tag-list">
+              <span class="about-tag">Game Design</span>
+              <span class="about-tag">QA Mindset</span>
+              <span class="about-tag">UI / UX Aware</span>
+              <span class="about-tag">Creative Problem-Solving</span>
+              <span class="about-tag">Detail-Focused</span>
+            </div>
+          </div>
+
+          <aside class="about-portrait-panel">
+            <div class="about-portrait-frame">
+              <img
+                src="/about-portrait-placeholder.png"
+                alt="Portrait placeholder for Taylor Heathcote"
+              />
+            </div>
+
+            <dl class="about-mini-facts">
+              <div>
+                <dt>Class</dt>
+                <dd>Creative Generalist</dd>
+              </div>
+              <div>
+                <dt>Status</dt>
+                <dd>Open to opportunities</dd>
+              </div>
+              <div>
+                <dt>Region</dt>
+                <dd>Nottingham, England</dd>
+              </div>
+            </dl>
+          </aside>
         </div>
       </section>
 
@@ -45,18 +73,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
         <dl class="about-facts">
           <div>
-            <dt>Class</dt>
-            <dd>Creative Generalist</dd>
-          </div>
-
-          <div>
             <dt>Focus</dt>
             <dd>Game Design / QA / Digital Media</dd>
-          </div>
-
-          <div>
-            <dt>Location</dt>
-            <dd>Nottingham, England</dd>
           </div>
 
           <div>
@@ -65,7 +83,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           </div>
 
           <div>
-            <dt>Status</dt>
+            <dt>Experience</dt>
+            <dd>QA testing, IT support, admin support</dd>
+          </div>
+
+          <div>
+            <dt>Working Style</dt>
+            <dd>Thoughtful, creative, detail-focused</dd>
+          </div>
+
+          <div>
+            <dt>Current Goal</dt>
             <dd>Building portfolio and seeking opportunities</dd>
           </div>
         </dl>
@@ -73,56 +101,56 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
       <section class="panel about-card about-attributes-card">
         <div class="about-card-header">
-          <h2>Attributes</h2>
+          <h2>Strengths</h2>
         </div>
 
-        <div class="attribute-list">
-          <div class="attribute-row">
-            <div class="attribute-topline">
-              <span>Creativity</span>
-              <strong>92</strong>
+        <div class="strength-list">
+          <div class="strength-row">
+            <div class="strength-copy">
+              <h3>Creativity</h3>
+              <p>Idea generation, conceptual thinking, and imaginative problem-solving.</p>
             </div>
-            <div class="attribute-bar"><span style="width: 92%"></span></div>
+            <span class="strength-rank strength-rank-core">Core Strength</span>
           </div>
 
-          <div class="attribute-row">
-            <div class="attribute-topline">
-              <span>Problem-Solving</span>
-              <strong>88</strong>
+          <div class="strength-row">
+            <div class="strength-copy">
+              <h3>Problem-Solving</h3>
+              <p>Enjoys refining clarity, structure, usability, and overall cohesion.</p>
             </div>
-            <div class="attribute-bar"><span style="width: 88%"></span></div>
+            <span class="strength-rank strength-rank-core">Core Strength</span>
           </div>
 
-          <div class="attribute-row">
-            <div class="attribute-topline">
-              <span>Communication</span>
-              <strong>82</strong>
+          <div class="strength-row">
+            <div class="strength-copy">
+              <h3>Communication</h3>
+              <p>Clear written feedback, documentation, and thoughtful presentation.</p>
             </div>
-            <div class="attribute-bar"><span style="width: 82%"></span></div>
+            <span class="strength-rank strength-rank-strong">Strong</span>
           </div>
 
-          <div class="attribute-row">
-            <div class="attribute-topline">
-              <span>Detail Focus</span>
-              <strong>90</strong>
+          <div class="strength-row">
+            <div class="strength-copy">
+              <h3>Detail Focus</h3>
+              <p>Cares about polish, consistency, and how separate parts fit together.</p>
             </div>
-            <div class="attribute-bar"><span style="width: 90%"></span></div>
+            <span class="strength-rank strength-rank-core">Core Strength</span>
           </div>
 
-          <div class="attribute-row">
-            <div class="attribute-topline">
-              <span>Adaptability</span>
-              <strong>80</strong>
+          <div class="strength-row">
+            <div class="strength-copy">
+              <h3>Adaptability</h3>
+              <p>Comfortable learning, iterating, and improving across different tasks.</p>
             </div>
-            <div class="attribute-bar"><span style="width: 80%"></span></div>
+            <span class="strength-rank strength-rank-strong">Strong</span>
           </div>
 
-          <div class="attribute-row">
-            <div class="attribute-topline">
-              <span>Collaboration</span>
-              <strong>78</strong>
+          <div class="strength-row">
+            <div class="strength-copy">
+              <h3>Collaboration</h3>
+              <p>Works well independently and alongside others when building toward a shared goal.</p>
             </div>
-            <div class="attribute-bar"><span style="width: 78%"></span></div>
+            <span class="strength-rank strength-rank-strong">Strong</span>
           </div>
         </div>
       </section>
@@ -238,6 +266,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           can contribute through design thinking, QA awareness, communication,
           and thoughtful creative execution.
         </p>
+
+        <ul class="about-focus-list clean-list">
+          <li>Building stronger portfolio presentation</li>
+          <li>Developing clearer project case studies</li>
+          <li>Seeking early-career opportunities in relevant creative roles</li>
+        </ul>
 
         <div class="button-row about-actions">
           <a

@@ -846,6 +846,20 @@ h1 {
   overflow: hidden;
 }
 
+.about-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.18) 0%,
+      rgba(255, 255, 255, 0.05) 18%,
+      transparent 40%
+    );
+  pointer-events: none;
+}
+
 .about-profile-card {
   grid-column: 1;
 }
@@ -874,20 +888,6 @@ h1 {
   grid-column: 2;
 }
 
-.about-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.18) 0%,
-      rgba(255, 255, 255, 0.05) 18%,
-      transparent 40%
-    );
-  pointer-events: none;
-}
-
 .about-card-header {
   display: block;
   margin-bottom: 1rem;
@@ -902,8 +902,11 @@ h1 {
   font-weight: 700;
 }
 
-.about-profile-card {
-  min-height: 100%;
+.about-profile-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 1.25rem;
+  align-items: start;
 }
 
 .about-profile-card h1 {
@@ -926,6 +929,55 @@ h1 {
   color: var(--text);
   line-height: 1.75;
   max-width: 62ch;
+}
+
+.about-portrait-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+.about-portrait-frame {
+  aspect-ratio: 1 / 1;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 5px solid var(--border);
+  background: rgba(244, 239, 230, 0.35);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.about-portrait-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-mini-facts {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.about-mini-facts div {
+  padding: 0.8rem 0.9rem;
+  border-radius: 18px;
+  border: 5px solid var(--border);
+  background: rgba(244, 239, 230, 0.34);
+}
+
+.about-mini-facts dt {
+  margin-bottom: 0.35rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.about-mini-facts dd {
+  margin: 0;
+  color: var(--text);
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 .about-tag-list,
@@ -975,51 +1027,50 @@ h1 {
   line-height: 1.45;
 }
 
-.attribute-list {
+.strength-list {
   display: grid;
   gap: 1rem;
 }
 
-.attribute-row {
+.strength-row {
   display: grid;
-  gap: 0.45rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: start;
+  padding: 0.95rem 1rem;
+  border-radius: 18px;
+  border: 5px solid var(--border);
+  background: rgba(244, 239, 230, 0.34);
 }
 
-.attribute-topline {
-  display: flex;
-  justify-content: space-between;
+.strength-copy h3 {
+  margin: 0 0 0.3rem;
+}
+
+.strength-copy p {
+  margin: 0;
+  color: var(--text);
+  line-height: 1.55;
+}
+
+.strength-rank {
+  display: inline-flex;
   align-items: center;
-  gap: 1rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+  border: 5px solid var(--border);
+  font-weight: 700;
+  white-space: nowrap;
 }
 
-.attribute-topline span {
-  font-weight: 700;
+.strength-rank-core {
+  background: rgba(169, 195, 174, 0.45);
   color: var(--accent-deep);
 }
 
-.attribute-topline strong {
-  font-size: 0.95rem;
-  color: var(--text);
-}
-
-.attribute-bar {
-  width: 100%;
-  height: 18px;
-  border-radius: 999px;
-  border: 5px solid var(--border);
-  background: rgba(244, 239, 230, 0.35);
-  overflow: hidden;
-}
-
-.attribute-bar span {
-  display: block;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    var(--accent-deep) 0%,
-    var(--accent) 65%,
-    var(--accent-soft) 100%
-  );
+.strength-rank-strong {
+  background: rgba(244, 239, 230, 0.55);
+  color: var(--accent-deep);
 }
 
 .tool-group + .tool-group {
@@ -1047,6 +1098,14 @@ h1 {
   color: var(--text);
 }
 
+.about-focus-list {
+  margin-top: 1rem;
+}
+
+.about-focus-list li + li {
+  margin-top: 0.4rem;
+}
+
 .about-actions {
   margin-top: 1.5rem;
 }
@@ -1059,14 +1118,32 @@ h1 {
   .about-profile-card h1 {
     max-width: none;
   }
-}
 
-@media (max-width: 700px) {
-  .about-card-header {
-    margin-bottom: 0.85rem;
+  .about-profile-card,
+  .about-facts-card,
+  .about-attributes-card,
+  .about-toolkit-card,
+  .about-experience-card,
+  .about-education-card,
+  .about-focus-card {
+    grid-column: 1;
   }
 }
 
-.about-attributes-card {
-  align-self: stretch;
+@media (max-width: 800px) {
+  .about-profile-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .about-portrait-panel {
+    max-width: 260px;
+  }
+
+  .strength-row {
+    grid-template-columns: 1fr;
+  }
+
+  .strength-rank {
+    justify-self: start;
+  }
 }
