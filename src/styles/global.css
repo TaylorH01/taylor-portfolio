@@ -864,37 +864,30 @@ h1 {
   grid-column: 1;
 }
 
-.about-facts-card {
+.about-record-card {
   grid-column: 2;
 }
 
-.about-attributes-card {
-  grid-column: 1;
-}
-
-.about-toolkit-card {
-  grid-column: 2;
+.about-strengths-card {
+  grid-column: 1 / -1;
 }
 
 .about-experience-card {
   grid-column: 1 / -1;
 }
 
-.about-education-card {
+.about-proficiencies-card {
   grid-column: 1;
 }
 
-.about-focus-card {
+.about-side-stack {
   grid-column: 2;
-}
-
-.about-card-header {
-  display: block;
-  margin-bottom: 1rem;
+  display: grid;
+  gap: 1.25rem;
 }
 
 .sheet-label {
-  margin: 0;
+  margin: 0 0 1rem;
   font-size: 0.92rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -902,18 +895,11 @@ h1 {
   font-weight: 700;
 }
 
-.about-profile-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 220px;
-  gap: 1.25rem;
-  align-items: start;
-}
-
 .about-profile-card h1 {
-  font-size: clamp(2.5rem, 4vw, 4.2rem);
-  line-height: 0.98;
-  margin-bottom: 0.7rem;
-  max-width: 12ch;
+  font-size: clamp(2.8rem, 4vw, 4.4rem);
+  line-height: 0.95;
+  margin-bottom: 0.75rem;
+  max-width: 10ch;
 }
 
 .about-role {
@@ -928,56 +914,7 @@ h1 {
   margin: 0 0 1.25rem;
   color: var(--text);
   line-height: 1.75;
-  max-width: 62ch;
-}
-
-.about-portrait-panel {
-  display: grid;
-  gap: 1rem;
-}
-
-.about-portrait-frame {
-  aspect-ratio: 1 / 1;
-  border-radius: 22px;
-  overflow: hidden;
-  border: 5px solid var(--border);
-  background: rgba(244, 239, 230, 0.35);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-.about-portrait-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.about-mini-facts {
-  display: grid;
-  gap: 0.75rem;
-  margin: 0;
-}
-
-.about-mini-facts div {
-  padding: 0.8rem 0.9rem;
-  border-radius: 18px;
-  border: 5px solid var(--border);
-  background: rgba(244, 239, 230, 0.34);
-}
-
-.about-mini-facts dt {
-  margin-bottom: 0.35rem;
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-}
-
-.about-mini-facts dd {
-  margin: 0;
-  color: var(--text);
-  font-weight: 700;
-  line-height: 1.4;
+  max-width: 60ch;
 }
 
 .about-tag-list,
@@ -999,28 +936,83 @@ h1 {
   font-weight: 700;
 }
 
-.about-facts {
+.about-specialisms {
+  margin-top: 1.35rem;
+  padding-top: 1.15rem;
+  border-top: 5px solid var(--border);
+}
+
+.about-subsection-label {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.about-specialism-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.about-specialism {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  border: 5px solid var(--border);
+  background: rgba(244, 239, 230, 0.34);
+  color: var(--text);
+  font-weight: 700;
+}
+
+.about-record-layout {
   display: grid;
-  gap: 0.9rem;
+  gap: 1rem;
+}
+
+.about-portrait-frame {
+  width: min(100%, 220px);
+  aspect-ratio: 1 / 1;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 5px solid var(--border);
+  background: rgba(244, 239, 230, 0.35);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  margin: 0 auto;
+}
+
+.about-portrait-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-record-list {
+  display: grid;
+  gap: 0.8rem;
   margin: 0;
 }
 
-.about-facts div {
-  padding: 0.95rem 1rem;
+.about-record-list div {
+  padding: 0.9rem 1rem;
   border-radius: 18px;
   border: 5px solid var(--border);
   background: rgba(244, 239, 230, 0.34);
 }
 
-.about-facts dt {
+.about-record-list dt {
   margin-bottom: 0.35rem;
-  font-size: 0.86rem;
+  font-size: 0.82rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--text-muted);
 }
 
-.about-facts dd {
+.about-record-list dd {
   margin: 0;
   color: var(--text);
   font-weight: 700;
@@ -1036,41 +1028,57 @@ h1 {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 1rem;
-  align-items: start;
-  padding: 0.95rem 1rem;
+  align-items: center;
+  padding: 1rem 1.1rem;
   border-radius: 18px;
   border: 5px solid var(--border);
   background: rgba(244, 239, 230, 0.34);
 }
 
-.strength-copy h3 {
-  margin: 0 0 0.3rem;
+.strength-main h3 {
+  margin: 0 0 0.25rem;
 }
 
-.strength-copy p {
+.strength-main p {
   margin: 0;
   color: var(--text);
   line-height: 1.55;
 }
 
+.strength-meta {
+  display: grid;
+  justify-items: end;
+  gap: 0.45rem;
+}
+
+.strength-dots {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.strength-dots span {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  border: 5px solid var(--border);
+  background: rgba(244, 239, 230, 0.4);
+}
+
+.strength-dots span.filled {
+  background: var(--accent);
+  border-color: var(--accent-deep);
+}
+
 .strength-rank {
   display: inline-flex;
   align-items: center;
-  padding: 0.5rem 0.8rem;
+  padding: 0.45rem 0.8rem;
   border-radius: 999px;
   border: 5px solid var(--border);
+  background: rgba(244, 239, 230, 0.5);
+  color: var(--accent-deep);
   font-weight: 700;
   white-space: nowrap;
-}
-
-.strength-rank-core {
-  background: rgba(169, 195, 174, 0.45);
-  color: var(--accent-deep);
-}
-
-.strength-rank-strong {
-  background: rgba(244, 239, 230, 0.55);
-  color: var(--accent-deep);
 }
 
 .tool-group + .tool-group {
@@ -1115,35 +1123,27 @@ h1 {
     grid-template-columns: 1fr;
   }
 
-  .about-profile-card h1 {
-    max-width: none;
+  .about-profile-card,
+  .about-record-card,
+  .about-strengths-card,
+  .about-experience-card,
+  .about-proficiencies-card,
+  .about-side-stack {
+    grid-column: 1;
   }
 
-  .about-profile-card,
-  .about-facts-card,
-  .about-attributes-card,
-  .about-toolkit-card,
-  .about-experience-card,
-  .about-education-card,
-  .about-focus-card {
-    grid-column: 1;
+  .about-profile-card h1 {
+    max-width: none;
   }
 }
 
 @media (max-width: 800px) {
-  .about-profile-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .about-portrait-panel {
-    max-width: 260px;
-  }
-
   .strength-row {
     grid-template-columns: 1fr;
+    align-items: start;
   }
 
-  .strength-rank {
-    justify-self: start;
+  .strength-meta {
+    justify-items: start;
   }
 }

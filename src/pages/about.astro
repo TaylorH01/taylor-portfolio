@@ -10,191 +10,194 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   <section class="about-sheet">
     <div class="about-sheet-grid">
       <section class="panel about-card about-profile-card">
-        <div class="about-profile-layout">
-          <div class="about-profile-main">
-            <div class="about-card-header">
-              <h2>Profile Sheet</h2>
-            </div>
+        <p class="sheet-label">Profile Sheet</p>
 
-            <h1>Taylor Heathcote</h1>
+        <h1>Taylor Heathcote</h1>
 
-            <p class="about-role">
-              Creative generalist with a background in game design, QA, digital
-              media, and thoughtful presentation.
-            </p>
+        <p class="about-role">
+          Creative generalist with a background in game design, QA testing,
+          digital media, and thoughtful presentation.
+        </p>
 
-            <p class="about-summary">
-              I’m interested in work that feels intentional — visually,
-              structurally, and emotionally. My strengths sit around creative
-              problem-solving, design communication, player-facing thinking, and
-              the kind of polish that helps a project feel coherent rather than
-              patched together.
-            </p>
+        <p class="about-summary">
+          I’m interested in work that feels intentional — visually,
+          structurally, and emotionally. My strengths sit around creative
+          problem-solving, design communication, player-facing thinking, and the
+          kind of polish that helps a project feel coherent rather than patched
+          together.
+        </p>
 
-            <div class="about-tag-list">
-              <span class="about-tag">Game Design</span>
-              <span class="about-tag">QA Mindset</span>
-              <span class="about-tag">UI / UX Aware</span>
-              <span class="about-tag">Creative Problem-Solving</span>
-              <span class="about-tag">Detail-Focused</span>
-            </div>
+        <div class="about-tag-list">
+          <span class="about-tag">Game Design</span>
+          <span class="about-tag">QA Testing</span>
+          <span class="about-tag">UI / UX Design</span>
+          <span class="about-tag">Creative Problem-Solving</span>
+          <span class="about-tag">Detail-Focused</span>
+        </div>
+
+        <div class="about-specialisms">
+          <p class="about-subsection-label">Specialisms</p>
+
+          <div class="about-specialism-list">
+            <span class="about-specialism">Game Design</span>
+            <span class="about-specialism">QA Testing</span>
+            <span class="about-specialism">UI / UX Design</span>
+            <span class="about-specialism">Design Documentation</span>
+            <span class="about-specialism">Assistant / Tool Configuration</span>
+            <span class="about-specialism">Addon Design & Data Structuring</span>
+          </div>
+        </div>
+
+      <section class="panel about-card about-record-card">
+        <p class="sheet-label">Core Record</p>
+
+        <div class="about-record-layout">
+          <div class="about-portrait-frame">
+            <img
+              src="/about-portrait-placeholder.png"
+              alt="Portrait placeholder for Taylor Heathcote"
+            />
           </div>
 
-          <aside class="about-portrait-panel">
-            <div class="about-portrait-frame">
-              <img
-                src="/about-portrait-placeholder.png"
-                alt="Portrait placeholder for Taylor Heathcote"
-              />
+          <dl class="about-record-list">
+            <div>
+              <dt>Class</dt>
+              <dd>Creative Generalist</dd>
             </div>
 
-            <dl class="about-mini-facts">
-              <div>
-                <dt>Class</dt>
-                <dd>Creative Generalist</dd>
-              </div>
-              <div>
-                <dt>Status</dt>
-                <dd>Open to opportunities</dd>
-              </div>
-              <div>
-                <dt>Region</dt>
-                <dd>Nottingham, England</dd>
-              </div>
-            </dl>
-          </aside>
+            <div>
+              <dt>Focus</dt>
+              <dd>Game Design / QA / Digital Media</dd>
+            </div>
+
+            <div>
+              <dt>Region</dt>
+              <dd>Nottingham, England</dd>
+            </div>
+
+            <div>
+              <dt>Status</dt>
+              <dd>Open to opportunities</dd>
+            </div>
+
+            <div>
+              <dt>Education</dt>
+              <dd>BSc (Hons) Computer Games Design — First Class</dd>
+            </div>
+          </dl>
         </div>
       </section>
 
-      <section class="panel about-card about-facts-card">
-        <div class="about-card-header">
-          <h2>Quick Facts</h2>
-        </div>
-
-        <dl class="about-facts">
-          <div>
-            <dt>Focus</dt>
-            <dd>Game Design / QA / Digital Media</dd>
-          </div>
-
-          <div>
-            <dt>Education</dt>
-            <dd>BSc (Hons) Computer Games Design — First Class</dd>
-          </div>
-
-          <div>
-            <dt>Experience</dt>
-            <dd>QA testing, IT support, admin support</dd>
-          </div>
-
-          <div>
-            <dt>Working Style</dt>
-            <dd>Thoughtful, creative, detail-focused</dd>
-          </div>
-
-          <div>
-            <dt>Current Goal</dt>
-            <dd>Building portfolio and seeking opportunities</dd>
-          </div>
-        </dl>
-      </section>
-
-      <section class="panel about-card about-attributes-card">
-        <div class="about-card-header">
-          <h2>Strengths</h2>
-        </div>
+      <section class="panel about-card about-strengths-card">
+        <p class="sheet-label">Strengths</p>
 
         <div class="strength-list">
           <div class="strength-row">
-            <div class="strength-copy">
+            <div class="strength-main">
               <h3>Creativity</h3>
-              <p>Idea generation, conceptual thinking, and imaginative problem-solving.</p>
+              <p>Conceptual thinking, idea generation, and imaginative problem-solving.</p>
             </div>
-            <span class="strength-rank strength-rank-core">Core Strength</span>
+            <div class="strength-meta">
+              <div class="strength-dots" aria-label="Advanced">
+                <span class="filled"></span>
+                <span class="filled"></span>
+                <span class="filled"></span>
+                <span class="filled"></span>
+                <span class="filled"></span>
+              </div>
+              <span class="strength-rank">Advanced</span>
+            </div>
           </div>
 
           <div class="strength-row">
-            <div class="strength-copy">
+            <div class="strength-main">
               <h3>Problem-Solving</h3>
-              <p>Enjoys refining clarity, structure, usability, and overall cohesion.</p>
+              <p>Refining clarity, structure, usability, and overall cohesion.</p>
             </div>
-            <span class="strength-rank strength-rank-core">Core Strength</span>
+            <div class="strength-meta">
+              <div class="strength-dots" aria-label="Advanced">
+                <span class="filled"></span>
+                <span class="filled"></span>
+                <span class="filled"></span>
+                <span class="filled"></span>
+                <span class="filled"></span>
+              </div>
+              <span class="strength-rank">Advanced</span>
+            </div>
           </div>
 
           <div class="strength-row">
-            <div class="strength-copy">
+            <div class="strength-main">
               <h3>Communication</h3>
               <p>Clear written feedback, documentation, and thoughtful presentation.</p>
             </div>
-            <span class="strength-rank strength-rank-strong">Strong</span>
-          </div>
-
-          <div class="strength-row">
-            <div class="strength-copy">
-              <h3>Detail Focus</h3>
-              <p>Cares about polish, consistency, and how separate parts fit together.</p>
+            <div class="strength-meta">
+              <div class="strength-dots" aria-label="Strong">
+                <span class="filled"></span>
+                <span class="filled"></span>
+                <span class="filled"></span>
+                <span class="filled"></span>
+                <span></span>
+              </div>
+              <span class="strength-rank">Strong</span>
             </div>
-            <span class="strength-rank strength-rank-core">Core Strength</span>
           </div>
 
           <div class="strength-row">
-            <div class="strength-copy">
+            <div class="strength-main">
+              <h3>Detail Focus</h3>
+              <p>Polish, consistency, and how separate parts fit together.</p>
+            </div>
+            <div class="strength-meta">
+              <div class="strength-dots" aria-label="Advanced">
+                <span class="filled"></span>
+                <span class="filled"></span>
+                <span class="filled"></span>
+                <span class="filled"></span>
+                <span class="filled"></span>
+              </div>
+              <span class="strength-rank">Advanced</span>
+            </div>
+          </div>
+
+          <div class="strength-row">
+            <div class="strength-main">
               <h3>Adaptability</h3>
               <p>Comfortable learning, iterating, and improving across different tasks.</p>
             </div>
-            <span class="strength-rank strength-rank-strong">Strong</span>
+            <div class="strength-meta">
+              <div class="strength-dots" aria-label="Strong">
+                <span class="filled"></span>
+                <span class="filled"></span>
+                <span class="filled"></span>
+                <span class="filled"></span>
+                <span></span>
+              </div>
+              <span class="strength-rank">Strong</span>
+            </div>
           </div>
 
           <div class="strength-row">
-            <div class="strength-copy">
+            <div class="strength-main">
               <h3>Collaboration</h3>
               <p>Works well independently and alongside others when building toward a shared goal.</p>
             </div>
-            <span class="strength-rank strength-rank-strong">Strong</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="panel about-card about-toolkit-card">
-        <div class="about-card-header">
-          <h2>Proficiencies</h2>
-        </div>
-
-        <div class="tool-group">
-          <h3>Engines & Workflow</h3>
-          <div class="about-chip-list">
-            <span class="about-chip">Unreal Engine 4 & 5</span>
-            <span class="about-chip">Unity</span>
-            <span class="about-chip">Jira</span>
-            <span class="about-chip">GitHub</span>
-          </div>
-        </div>
-
-        <div class="tool-group">
-          <h3>Creative Software</h3>
-          <div class="about-chip-list">
-            <span class="about-chip">Adobe Creative Suite</span>
-            <span class="about-chip">Autodesk Maya</span>
-            <span class="about-chip">Blender</span>
-            <span class="about-chip">Microsoft Office</span>
-          </div>
-        </div>
-
-        <div class="tool-group">
-          <h3>Code & Technical</h3>
-          <div class="about-chip-list">
-            <span class="about-chip">C++ (Intermediate)</span>
-            <span class="about-chip">C# (Novice)</span>
-            <span class="about-chip">UI / UX Awareness</span>
-            <span class="about-chip">Design Documentation</span>
+            <div class="strength-meta">
+              <div class="strength-dots" aria-label="Strong">
+                <span class="filled"></span>
+                <span class="filled"></span>
+                <span class="filled"></span>
+                <span class="filled"></span>
+                <span></span>
+              </div>
+              <span class="strength-rank">Strong</span>
+            </div>
           </div>
         </div>
       </section>
 
       <section class="panel about-card about-experience-card">
-        <div class="about-card-header">
-          <h2>Experience Log</h2>
-        </div>
+        <p class="sheet-label">Experience Log</p>
 
         <div class="experience-entry">
           <h3>Pixel Squad — Video Game QA Tester</h3>
@@ -231,59 +234,103 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         </div>
       </section>
 
-      <section class="panel about-card about-education-card">
-        <div class="about-card-header">
-          <h2>Education</h2>
+      <section class="panel about-card about-proficiencies-card">
+        <p class="sheet-label">Proficiencies</p>
+
+        <div class="tool-group">
+          <h3>Engines & Interactive Tools</h3>
+          <div class="about-chip-list">
+            <span class="about-chip">Unreal Engine 4 & 5</span>
+            <span class="about-chip">Unity</span>
+            <span class="about-chip">UEFN</span>
+            <span class="about-chip">Twine</span>
+            <span class="about-chip">Valve Hammer Editor</span>
+          </div>
         </div>
 
-        <div class="education-entry">
-          <h3>University of Staffordshire</h3>
-          <p>BSc (Honours) Computer Games Design — First Class</p>
-          <p class="muted">September 2021 – June 2024</p>
+        <div class="tool-group">
+          <h3>Web & Code</h3>
+          <div class="about-chip-list">
+            <span class="about-chip">Astro</span>
+            <span class="about-chip">Java</span>
+            <span class="about-chip">C++ (Intermediate)</span>
+            <span class="about-chip">C# (Novice)</span>
+          </div>
         </div>
 
-        <div class="education-entry">
-          <h3>Confetti Institute of Creative Technologies</h3>
-          <p>BTEC Level 3 Creative Digital Media — Distinction / Merit / Merit</p>
-          <p class="muted">September 2018 – June 2020</p>
+        <div class="tool-group">
+          <h3>Creative Software</h3>
+          <div class="about-chip-list">
+            <span class="about-chip">Adobe Creative Suite</span>
+            <span class="about-chip">Autodesk Maya</span>
+            <span class="about-chip">Blender</span>
+          </div>
         </div>
 
-        <div class="education-entry">
-          <h3>Additional Learning</h3>
-          <p>Deloitte Data Analytics Job Simulation — Forage</p>
-          <p class="muted">December 2025</p>
-        </div>
-      </section>
-
-      <section class="panel about-card about-focus-card">
-        <div class="about-card-header">
-          <h2>Current Focus</h2>
-        </div>
-
-        <p>
-          Right now I’m focused on building a stronger portfolio, refining how I
-          present my work, and moving toward early-career opportunities where I
-          can contribute through design thinking, QA awareness, communication,
-          and thoughtful creative execution.
-        </p>
-
-        <ul class="about-focus-list clean-list">
-          <li>Building stronger portfolio presentation</li>
-          <li>Developing clearer project case studies</li>
-          <li>Seeking early-career opportunities in relevant creative roles</li>
-        </ul>
-
-        <div class="button-row about-actions">
-          <a
-            href="/Taylor-Heathcote-CV-2026.pdf"
-            class="button button-primary"
-            download
-          >
-            Download Full CV
-          </a>
-          <a href="/contact" class="button button-secondary">Contact Me</a>
+        <div class="tool-group">
+          <h3>Workflow & Collaboration</h3>
+          <div class="about-chip-list">
+            <span class="about-chip">Jira</span>
+            <span class="about-chip">GitHub</span>
+            <span class="about-chip">Trello</span>
+            <span class="about-chip">Notion</span>
+            <span class="about-chip">Miro</span>
+            <span class="about-chip">Microsoft Office Suite</span>
+          </div>
         </div>
       </section>
+
+      <div class="about-side-stack">
+        <section class="panel about-card about-education-card">
+          <p class="sheet-label">Education</p>
+
+          <div class="education-entry">
+            <h3>University of Staffordshire</h3>
+            <p>BSc (Honours) Computer Games Design — First Class</p>
+            <p class="muted">September 2021 – June 2024</p>
+          </div>
+
+          <div class="education-entry">
+            <h3>Confetti Institute of Creative Technologies</h3>
+            <p>BTEC Level 3 Creative Digital Media — Distinction / Merit / Merit</p>
+            <p class="muted">September 2018 – June 2020</p>
+          </div>
+
+          <div class="education-entry">
+            <h3>Additional Learning</h3>
+            <p>Deloitte Data Analytics Job Simulation — Forage</p>
+            <p class="muted">December 2025</p>
+          </div>
+        </section>
+
+        <section class="panel about-card about-focus-card">
+          <p class="sheet-label">Current Focus</p>
+
+          <p>
+            Right now I’m focused on building a stronger portfolio, refining how I
+            present my work, and moving toward early-career opportunities where I
+            can contribute through design thinking, QA awareness, communication,
+            and thoughtful creative execution.
+          </p>
+
+          <ul class="about-focus-list clean-list">
+            <li>Building stronger portfolio presentation</li>
+            <li>Developing clearer project case studies</li>
+            <li>Seeking early-career opportunities in relevant creative roles</li>
+          </ul>
+
+          <div class="button-row about-actions">
+            <a
+              href="/Taylor-Heathcote-CV-2026.pdf"
+              class="button button-primary"
+              download
+            >
+              Download Full CV
+            </a>
+            <a href="/contact" class="button button-secondary">Contact Me</a>
+          </div>
+        </section>
+      </div>
     </div>
   </section>
 </BaseLayout>
