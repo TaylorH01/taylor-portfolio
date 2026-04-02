@@ -24,10 +24,12 @@ const currentProjects = projects.filter((project) => project.data.bucket === "cu
       <div class="projects-hero-grid">
         <div class="projects-hero-copy">
           <p class="eyebrow">Projects</p>
-          <h1>Selected work, design collections, and ongoing development.</h1>
+          <h1 class="projects-hero-title">
+            Selected work, design collections, and ongoing development.
+          </h1>
           <p class="lead">
-            A curated look at the projects that best show how I think, what I contribute,
-            and the kinds of creative problems I enjoy solving.
+            A curated look at the projects that best show how I think, what I
+            contribute, and the kinds of creative problems I enjoy solving.
           </p>
 
           <div class="projects-hero-tags">
@@ -52,7 +54,7 @@ const currentProjects = projects.filter((project) => project.data.bucket === "cu
               <dd>{collectionProjects.length}</dd>
             </div>
             <div>
-              <dt>In Development</dt>
+              <dt>In Progress</dt>
               <dd>{currentProjects.length}</dd>
             </div>
           </dl>
@@ -71,13 +73,13 @@ const currentProjects = projects.filter((project) => project.data.bucket === "cu
         <div>
           <h2>Featured Work</h2>
           <p class="projects-section-subtext">
-            Larger projects and stronger showcase pieces presented with more space and emphasis.
+            Larger projects and stronger showcase pieces presented with more emphasis.
           </p>
         </div>
       </div>
 
       <div class="project-showcase-stack">
-        {featuredProjects.map((project, index) => (
+        {featuredProjects.map((project) => (
           <article class="project-showcase-card">
             <a href={`/projects/${project.id}`} class="project-showcase-thumb-link">
               <div class="project-showcase-thumb">
@@ -118,7 +120,7 @@ const currentProjects = projects.filter((project) => project.data.bucket === "cu
           <div>
             <h2>Collections & Supporting Work</h2>
             <p class="projects-section-subtext">
-              Focused collections and smaller supporting pieces that still deserve their own pages.
+              Focused collections and smaller supporting pieces that still deserve dedicated pages.
             </p>
           </div>
         </div>
@@ -157,33 +159,30 @@ const currentProjects = projects.filter((project) => project.data.bucket === "cu
           <div>
             <h2>In Development</h2>
             <p class="projects-section-subtext">
-              Ongoing and unreleased work that is still evolving.
+              Ongoing and unreleased work that is still being built and refined.
             </p>
           </div>
         </div>
 
         <div class="project-current-list">
           {currentProjects.map((project) => (
-            <article class="project-current-card">
-              <div class="project-card-status-flag">In Development</div>
-
-              <div class="project-current-main">
-                <div class="project-current-copy">
-                  <p class="project-kicker">{project.data.category}</p>
-                  <h2 class="project-card-title project-card-title-small">
-                    <a href={`/projects/${project.id}`} class="project-title-link">
-                      {project.data.title}
-                    </a>
-                  </h2>
-                  <p class="project-status">{project.data.status}</p>
-                  <p class="project-description">{project.data.description}</p>
-                </div>
-
-                <div class="project-current-actions">
-                  <a href={`/projects/${project.id}`} class="button button-primary">
-                    View Project
+            <article class="project-current-row">
+              <div class="project-current-row-main">
+                <p class="project-kicker">{project.data.category}</p>
+                <h2 class="project-card-title project-card-title-small">
+                  <a href={`/projects/${project.id}`} class="project-title-link">
+                    {project.data.title}
                   </a>
-                </div>
+                </h2>
+                <p class="project-status">{project.data.status}</p>
+                <p class="project-description">{project.data.description}</p>
+              </div>
+
+              <div class="project-current-row-side">
+                <span class="project-current-flag">In Development</span>
+                <a href={`/projects/${project.id}`} class="button button-primary">
+                  View Project
+                </a>
               </div>
             </article>
           ))}
