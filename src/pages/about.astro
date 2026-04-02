@@ -10,8 +10,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   <section class="about-sheet">
     <div class="about-sheet-grid">
       <section class="panel about-card about-profile-card">
-        <p class="sheet-label">Character Sheet</p>
+        <div class="about-card-header">
+          <p class="sheet-label">Character Sheet</p>
+          <span class="sheet-badge">Player Profile</span>
+        </div>
+
         <h1>Taylor Heathcote</h1>
+
         <p class="about-role">
           Creative generalist with a background in game design, QA, digital
           media, and thoughtful presentation.
@@ -35,7 +40,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </section>
 
       <section class="panel about-card about-facts-card">
-        <h2>Quick Facts</h2>
+        <div class="about-card-header">
+          <h2>Quick Facts</h2>
+          <span class="sheet-badge">Reference</span>
+        </div>
 
         <dl class="about-facts">
           <div>
@@ -66,43 +74,67 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </section>
 
       <section class="panel about-card about-attributes-card">
-        <h2>Attributes</h2>
+        <div class="about-card-header">
+          <h2>Attributes</h2>
+          <span class="sheet-badge">Stats</span>
+        </div>
 
         <div class="attribute-list">
           <div class="attribute-row">
-            <span>Creativity</span>
+            <div class="attribute-topline">
+              <span>Creativity</span>
+              <strong>92</strong>
+            </div>
+            <div class="attribute-bar"><span style="width: 92%"></span></div>
+          </div>
+
+          <div class="attribute-row">
+            <div class="attribute-topline">
+              <span>Problem-Solving</span>
+              <strong>88</strong>
+            </div>
+            <div class="attribute-bar"><span style="width: 88%"></span></div>
+          </div>
+
+          <div class="attribute-row">
+            <div class="attribute-topline">
+              <span>Communication</span>
+              <strong>82</strong>
+            </div>
+            <div class="attribute-bar"><span style="width: 82%"></span></div>
+          </div>
+
+          <div class="attribute-row">
+            <div class="attribute-topline">
+              <span>Detail Focus</span>
+              <strong>90</strong>
+            </div>
             <div class="attribute-bar"><span style="width: 90%"></span></div>
           </div>
 
           <div class="attribute-row">
-            <span>Problem-Solving</span>
-            <div class="attribute-bar"><span style="width: 85%"></span></div>
-          </div>
-
-          <div class="attribute-row">
-            <span>Communication</span>
-            <div class="attribute-bar"><span style="width: 65%"></span></div>
-          </div>
-
-          <div class="attribute-row">
-            <span>Detail Focus</span>
-            <div class="attribute-bar"><span style="width: 90%"></span></div>
-          </div>
-
-          <div class="attribute-row">
-            <span>Adaptability</span>
+            <div class="attribute-topline">
+              <span>Adaptability</span>
+              <strong>80</strong>
+            </div>
             <div class="attribute-bar"><span style="width: 80%"></span></div>
           </div>
 
           <div class="attribute-row">
-            <span>Collaboration</span>
+            <div class="attribute-topline">
+              <span>Collaboration</span>
+              <strong>78</strong>
+            </div>
             <div class="attribute-bar"><span style="width: 78%"></span></div>
           </div>
         </div>
       </section>
 
       <section class="panel about-card about-toolkit-card">
-        <h2>Proficiencies</h2>
+        <div class="about-card-header">
+          <h2>Proficiencies</h2>
+          <span class="sheet-badge">Toolkit</span>
+        </div>
 
         <div class="tool-group">
           <h3>Engines & Workflow</h3>
@@ -136,7 +168,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </section>
 
       <section class="panel about-card about-experience-card">
-        <h2>Experience Log</h2>
+        <div class="about-card-header">
+          <h2>Experience Log</h2>
+          <span class="sheet-badge">History</span>
+        </div>
 
         <div class="experience-entry">
           <h3>Pixel Squad — Video Game QA Tester</h3>
@@ -174,7 +209,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </section>
 
       <section class="panel about-card about-education-card">
-        <h2>Education</h2>
+        <div class="about-card-header">
+          <h2>Education</h2>
+          <span class="sheet-badge">Training</span>
+        </div>
 
         <div class="education-entry">
           <h3>University of Staffordshire</h3>
@@ -189,14 +227,18 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         </div>
 
         <div class="education-entry">
-          <h3>Additional learning</h3>
+          <h3>Additional Learning</h3>
           <p>Deloitte Data Analytics Job Simulation — Forage</p>
           <p class="muted">December 2025</p>
         </div>
       </section>
 
       <section class="panel about-card about-focus-card">
-        <h2>Current Focus</h2>
+        <div class="about-card-header">
+          <h2>Current Focus</h2>
+          <span class="sheet-badge">Active Quest</span>
+        </div>
+
         <p>
           Right now I’m focused on building a stronger portfolio, refining how I
           present my work, and moving toward early-career opportunities where I
