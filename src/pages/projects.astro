@@ -12,99 +12,125 @@ const projects: CollectionEntry<"projects">[] = (await getCollection("projects")
 const featuredProjects = projects.filter((project) => project.data.bucket === "featured");
 const collectionProjects = projects.filter((project) => project.data.bucket === "collection");
 const currentProjects = projects.filter((project) => project.data.bucket === "current");
+
+const leadProject = featuredProjects[0] ?? projects[0];
 ---
 
 <BaseLayout
   title="Projects | Taylor Heathcote"
-  description="Detailed project work spanning game design, level design, UI/UX, writing, and in-development creative work."
+  description="Selected game design, QA, UI/UX, and creative portfolio work by Taylor Heathcote."
   currentPage="projects"
 >
   <section class="projects-page">
-    <section class="panel projects-hero-board">
-      <div class="projects-hero-grid">
+    <div class="projects-hero panel">
+      <div class="projects-hero-layout">
         <div class="projects-hero-copy">
-          <p class="eyebrow">Projects</p>
-          <h1 class="projects-hero-title">
-            Selected work, design collections, and ongoing development.
-          </h1>
-          <p class="lead">
-            A curated look at the projects that best show how I think, what I
-            contribute, and the kinds of creative problems I enjoy solving.
+          <p class="eyebrow projects-kicker">Project Record</p>
+          <h1>Selected work, design collections, and ongoing development.</h1>
+          <p class="lead projects-lead">
+            A curated look at the work that best shows how I think, what I contribute,
+            and the kinds of creative problems I enjoy solving.
           </p>
 
-          <div class="projects-hero-tags">
-            <span class="projects-hero-tag">Game Design</span>
-            <span class="projects-hero-tag">Level Design</span>
-            <span class="projects-hero-tag">UI / UX Design</span>
-            <span class="projects-hero-tag">Writing</span>
-            <span class="projects-hero-tag">In Development</span>
+          <div class="projects-chip-row" aria-label="Project disciplines">
+            <span class="projects-chip">Game Design</span>
+            <span class="projects-chip">Level Design</span>
+            <span class="projects-chip">UI / UX Design</span>
+            <span class="projects-chip">Writing</span>
+            <span class="projects-chip">In Development</span>
           </div>
         </div>
 
-        <aside class="projects-hero-record panel">
-          <p class="sheet-label">Project Record</p>
+        <aside class="projects-hero-record card">
+          <p class="sheet-label">Archive Summary</p>
 
-          <dl class="projects-record-list">
-            <div>
-              <dt>Featured Work</dt>
-              <dd>{featuredProjects.length}</dd>
+          <div class="projects-record-grid">
+            <div class="projects-record-item">
+              <span class="projects-record-number">{projects.length}</span>
+              <span class="projects-record-label">Total Projects</span>
             </div>
-            <div>
-              <dt>Collections</dt>
-              <dd>{collectionProjects.length}</dd>
-            </div>
-            <div>
-              <dt>In Progress</dt>
-              <dd>{currentProjects.length}</dd>
-            </div>
-          </dl>
 
-          <div class="projects-record-tags">
-            <span class="projects-record-tag">Showcase Pieces</span>
-            <span class="projects-record-tag">Collections</span>
-            <span class="projects-record-tag">In Progress</span>
+            <div class="projects-record-item">
+              <span class="projects-record-number">{featuredProjects.length}</span>
+              <span class="projects-record-label">Featured Work</span>
+            </div>
+
+            <div class="projects-record-item">
+              <span class="projects-record-number">{collectionProjects.length}</span>
+              <span class="projects-record-label">Collections</span>
+            </div>
+
+            <div class="projects-record-item">
+              <span class="projects-record-number">{currentProjects.length}</span>
+              <span class="projects-record-label">In Progress</span>
+            </div>
           </div>
+
+          {leadProject && (
+            <div class="projects-hero-highlight">
+              <p class="sheet-label">Currently Highlighted</p>
+              <h2 class="projects-highlight-title">{leadProject.data.title}</h2>
+              <p class="projects-highlight-copy">{leadProject.data.description}</p>
+
+              <div class="project-link-row">
+                <a class="button button-primary" href={`/projects/${leadProject.id}/`}>
+                  View Highlighted Project
+                </a>
+              </div>
+            </div>
+          )}
         </aside>
       </div>
-    </section>
+    </div>
 
-    <section class="panel projects-showcase-panel">
-      <div class="projects-section-header">
-        <div>
-          <h2>Featured Work</h2>
-          <p class="projects-section-subtext">
-            Larger projects and stronger showcase pieces presented with more emphasis.
-          </p>
+    <section class="projects-section">
+      <div class="projects-section-head">
+        <div class="projects-section-title-row">
+          <p class="sheet-label">Showcase Pieces</p>
+          <span class="projects-section-count">{featuredProjects.length}</span>
         </div>
+
+        <h2>Featured Work</h2>
+        <p class="projects-section-copy">
+          Larger showcase pieces with clearer presentation, stronger context, and more room
+          to communicate process, role, and design thinking.
+        </p>
       </div>
 
-      <div class="project-showcase-stack">
+      <div class="projects-featured-list">
         {featuredProjects.map((project) => (
-          <article class="project-showcase-card">
-            <a href={`/projects/${project.id}`} class="project-showcase-thumb-link">
-              <div class="project-showcase-thumb">
-                <img src={project.data.thumbnail} alt={project.data.title} />
-              </div>
+          <article class="projects-feature-card card">
+            <a class="projects-feature-media" href={`/projects/${project.id}/`} aria-label={`Open ${project.data.title}`}>
+              <img
+                src={project.data.thumbnail}
+                alt={project.data.shortTitle ?? project.data.title}
+                class="projects-feature-image"
+                loading="lazy"
+              />
             </a>
 
-            <div class="project-showcase-copy">
-              <p class="project-kicker">{project.data.category}</p>
-              <h2 class="project-card-title project-card-title-showcase">
-                <a href={`/projects/${project.id}`} class="project-title-link">
-                  {project.data.title}
-                </a>
-              </h2>
-              <p class="project-status">{project.data.status}</p>
-              <p class="project-description">{project.data.description}</p>
-
-              <div class="project-role-list">
-                {project.data.roles.map((role) => (
-                  <span class="project-role-chip">{role}</span>
-                ))}
+            <div class="projects-feature-copy">
+              <div class="projects-meta-row">
+                <span class="projects-category">{project.data.category}</span>
+                <span class="projects-status">{project.data.status}</span>
               </div>
 
-              <div class="project-showcase-actions">
-                <a href={`/projects/${project.id}`} class="button button-primary">
+              <h2 class="projects-card-title">
+                <a href={`/projects/${project.id}/`}>{project.data.title}</a>
+              </h2>
+
+              <p class="projects-card-description">{project.data.description}</p>
+
+              {project.data.roles.length > 0 && (
+                <div class="project-role-list" aria-label={`${project.data.title} roles`}>
+                  {project.data.roles.map((role) => (
+                    <span class="project-role-pill">{role}</span>
+                  ))}
+                </div>
+              )}
+
+              <div class="project-link-row">
+                <a class="button button-primary" href={`/projects/${project.id}/`}>
                   View Project
                 </a>
               </div>
@@ -114,76 +140,109 @@ const currentProjects = projects.filter((project) => project.data.bucket === "cu
       </div>
     </section>
 
-    <section class="projects-lower-grid">
-      <section class="panel projects-section-panel">
-        <div class="projects-section-header">
-          <div>
-            <h2>Collections & Supporting Work</h2>
-            <p class="projects-section-subtext">
-              Focused collections and smaller supporting pieces that still deserve dedicated pages.
-            </p>
+  <section class="projects-lower-grid">
+    <section class="projects-section-shell card">
+      <div class="projects-section-shell-head">
+        <div class="projects-section-shell-top">
+          <p class="sheet-label">Supporting Archive</p>
+          <span class="projects-section-count">{collectionProjects.length}</span>
+        </div>
+
+        <h2>Collections & Supporting Work</h2>
+        <p class="projects-section-copy">
+          Grouped and supporting work collected into dedicated pages.
+        </p>
+      </div>
+
+      <div class="projects-collection-grid">
+        {collectionProjects.map((project) => (
+          <article class="projects-collection-card card">
+            <div class="projects-meta-row">
+              <span class="projects-category">{project.data.category}</span>
+              {project.data.year && <span class="projects-year">{project.data.year}</span>}
+            </div>
+
+            <h2 class="projects-card-title">
+              <a href={`/projects/${project.id}/`}>{project.data.title}</a>
+            </h2>
+
+            <p class="projects-card-description">{project.data.description}</p>
+
+            <a class="button button-primary" href={`/projects/${project.id}/`}>
+              View Project
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+  <section class="projects-section-shell card">
+    <div class="projects-section-shell-head">
+      <div class="projects-section-shell-top">
+        <p class="sheet-label">Ongoing Work</p>
+        <span class="projects-section-count">{currentProjects.length}</span>
+      </div>
+
+      <h2>In Development</h2>
+      <p class="projects-section-copy">
+        Ongoing and unreleased work still being built, tested, and refined.
+      </p>
+    </div>
+
+    <div class="projects-current-grid">
+      {currentProjects.map((project) => (
+        <article class="projects-current-card card">
+          <div class="projects-current-top">
+            <span class="projects-category">{project.data.category}</span>
+            <span class="projects-status projects-status-soft">{project.data.status}</span>
           </div>
-        </div>
 
-        <div class="project-support-list">
-          {collectionProjects.map((project) => (
-            <article class="project-support-card">
-              <a href={`/projects/${project.id}`} class="project-support-thumb-link">
-                <div class="project-support-thumb">
-                  <img src={project.data.thumbnail} alt={project.data.title} />
-                </div>
-              </a>
+          <h2 class="projects-card-title">
+            <a href={`/projects/${project.id}/`}>{project.data.title}</a>
+          </h2>
 
-              <div class="project-support-copy">
-                <p class="project-kicker">{project.data.category}</p>
-                <h2 class="project-card-title project-card-title-small">
-                  <a href={`/projects/${project.id}`} class="project-title-link">
-                    {project.data.title}
-                  </a>
-                </h2>
-                <p class="project-description">{project.data.description}</p>
-              </div>
+          <p class="projects-card-description">{project.data.description}</p>
 
-              <div class="project-support-actions">
-                <a href={`/projects/${project.id}`} class="button button-primary">
-                  View Project
-                </a>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+          <a class="button button-primary" href={`/projects/${project.id}/`}>
+            View Project
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+</section>
 
-      <section class="panel projects-section-panel projects-current-panel">
-        <div class="projects-section-header">
-          <div>
-            <h2>In Development</h2>
-            <p class="projects-section-subtext">
-              Ongoing and unreleased work that is still being built and refined.
-            </p>
+      <section class="projects-section projects-subsection">
+        <div class="projects-section-head">
+          <div class="projects-section-title-row">
+            <p class="sheet-label">Ongoing Work</p>
+            <span class="projects-section-count">{currentProjects.length}</span>
           </div>
+
+          <h2>In Development</h2>
+          <p class="projects-section-copy">
+            Current and unreleased work that is still being built, tested, refined, or shaped
+            into a fuller portfolio piece.
+          </p>
         </div>
 
-        <div class="project-current-list">
+        <div class="projects-current-grid">
           {currentProjects.map((project) => (
-            <article class="project-current-row">
-              <div class="project-current-row-main">
-                <p class="project-kicker">{project.data.category}</p>
-                <h2 class="project-card-title project-card-title-small">
-                  <a href={`/projects/${project.id}`} class="project-title-link">
-                    {project.data.title}
-                  </a>
-                </h2>
-                <p class="project-status">{project.data.status}</p>
-                <p class="project-description">{project.data.description}</p>
+            <article class="projects-current-card card">
+              <div class="projects-current-top">
+                <span class="projects-category">{project.data.category}</span>
+                <span class="projects-status projects-status-soft">{project.data.status}</span>
               </div>
 
-              <div class="project-current-row-side">
-                <span class="project-current-flag">In Development</span>
-                <a href={`/projects/${project.id}`} class="button button-primary">
-                  View Project
-                </a>
-              </div>
+              <h2 class="projects-card-title">
+                <a href={`/projects/${project.id}/`}>{project.data.title}</a>
+              </h2>
+
+              <p class="projects-card-description">{project.data.description}</p>
+
+              <a class="button button-primary" href={`/projects/${project.id}/`}>
+                View Project
+              </a>
             </article>
           ))}
         </div>

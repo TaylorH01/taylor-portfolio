@@ -1,6 +1,6 @@
 ---
-title: "Building the Blog Layout for My Portfolio"
-description: "A test post for checking typography, layout, spacing, hierarchy, and how longer-form writing feels across the site."
+title: "Example Blog"
+description: "AI Filler Text, Use ONLY for formatting notes"
 date: "2026-03-31"
 thumbnail: "/default-blog-thumbnail.png"
 draft: false
