@@ -2117,3 +2117,29 @@ h3 {
   display: grid;
   gap: 1rem;
 }
+
+.projects-featured-section {
+  gap: 1rem;
+}
+
+.projects-featured-head {
+  max-width: 62ch;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.projects-featured-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.projects-featured-top .sheet-label {
+  margin: 0;
+}
+
+.projects-featured-head h2,
+.projects-featured-head .projects-section-copy {
+  margin: 0;
+}
