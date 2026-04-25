@@ -28,8 +28,8 @@ const leadProject = featuredProjects[0] ?? projects[0];
           <p class="eyebrow projects-kicker">Project Record</p>
           <h1>Selected work, design collections, and ongoing development.</h1>
           <p class="lead projects-lead">
-            A curated look at the work that best shows how I think, what I contribute,
-            and the kinds of creative problems I enjoy solving.
+            This is a hand-picked selection of some of my work.
+            You'll find finished projects, Collections & things I'm currently working on.
           </p>
 
           <div class="projects-chip-row" aria-label="Project disciplines">
@@ -94,11 +94,16 @@ const leadProject = featuredProjects[0] ?? projects[0];
         <p class="projects-section-copy">
           Larger showcase pieces presented with more context, stronger hierarchy, and clearer role definition.
         </p>
+      </div>
 
       <div class="projects-featured-list">
         {featuredProjects.map((project) => (
           <article class="projects-feature-card card">
-            <a class="projects-feature-media" href={`/projects/${project.id}/`} aria-label={`Open ${project.data.title}`}>
+            <a
+              class="projects-feature-media"
+              href={`/projects/${project.id}/`}
+              aria-label={`Open ${project.data.title}`}
+            >
               <img
                 src={project.data.thumbnail}
                 alt={project.data.shortTitle ?? project.data.title}
@@ -138,89 +143,52 @@ const leadProject = featuredProjects[0] ?? projects[0];
       </div>
     </section>
 
-  <section class="projects-lower-grid">
-    <section class="projects-section-shell card">
-      <div class="projects-section-shell-head">
-        <div class="projects-section-shell-top">
-          <p class="sheet-label">Supporting Archive</p>
-          <span class="projects-section-count">{collectionProjects.length}</span>
-        </div>
-
-        <h2>Collections & Supporting Work</h2>
-        <p class="projects-section-copy">
-          Grouped and supporting work collected into dedicated pages.
-        </p>
-      </div>
-
-      <div class="projects-collection-grid">
-        {collectionProjects.map((project) => (
-          <article class="projects-collection-card card">
-            <div class="projects-meta-row">
-              <span class="projects-category">{project.data.category}</span>
-              {project.data.year && <span class="projects-year">{project.data.year}</span>}
-            </div>
-
-            <h2 class="projects-card-title">
-              <a href={`/projects/${project.id}/`}>{project.data.title}</a>
-            </h2>
-
-            <p class="projects-card-description">{project.data.description}</p>
-
-            <a class="button button-primary" href={`/projects/${project.id}/`}>
-              View Project
-            </a>
-          </article>
-        ))}
-      </div>
-    </section>
-
-  <section class="projects-section-shell card">
-    <div class="projects-section-shell-head">
-      <div class="projects-section-shell-top">
-        <p class="sheet-label">Ongoing Work</p>
-        <span class="projects-section-count">{currentProjects.length}</span>
-      </div>
-
-      <h2>In Development</h2>
-      <p class="projects-section-copy">
-        Ongoing and unreleased work still being built, tested, and refined.
-      </p>
-    </div>
-
-    <div class="projects-current-grid">
-      {currentProjects.map((project) => (
-        <article class="projects-current-card card">
-          <div class="projects-current-top">
-            <span class="projects-category">{project.data.category}</span>
-            <span class="projects-status projects-status-soft">{project.data.status}</span>
+    <section class="projects-lower-grid">
+      <section class="projects-section-shell card">
+        <div class="projects-section-shell-head">
+          <div class="projects-section-shell-top">
+            <p class="sheet-label">Supporting Archive</p>
+            <span class="projects-section-count">{collectionProjects.length}</span>
           </div>
 
-          <h2 class="projects-card-title">
-            <a href={`/projects/${project.id}/`}>{project.data.title}</a>
-          </h2>
+          <h2>Collections & Supporting Work</h2>
+          <p class="projects-section-copy">
+            Grouped and supporting work collected into dedicated pages.
+          </p>
+        </div>
 
-          <p class="projects-card-description">{project.data.description}</p>
+        <div class="projects-collection-grid">
+          {collectionProjects.map((project) => (
+            <article class="projects-collection-card card">
+              <div class="projects-meta-row">
+                <span class="projects-category">{project.data.category}</span>
+                {project.data.year && <span class="projects-year">{project.data.year}</span>}
+              </div>
 
-          <a class="button button-primary" href={`/projects/${project.id}/`}>
-            View Project
-          </a>
-        </article>
-      ))}
-    </div>
-  </section>
-</section>
+              <h2 class="projects-card-title">
+                <a href={`/projects/${project.id}/`}>{project.data.title}</a>
+              </h2>
 
-      <section class="projects-section projects-subsection">
-        <div class="projects-section-head">
-          <div class="projects-section-title-row">
+              <p class="projects-card-description">{project.data.description}</p>
+
+              <a class="button button-primary" href={`/projects/${project.id}/`}>
+                View Project
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="projects-section-shell card">
+        <div class="projects-section-shell-head">
+          <div class="projects-section-shell-top">
             <p class="sheet-label">Ongoing Work</p>
             <span class="projects-section-count">{currentProjects.length}</span>
           </div>
 
           <h2>In Development</h2>
           <p class="projects-section-copy">
-            Current and unreleased work that is still being built, tested, refined, or shaped
-            into a fuller portfolio piece.
+            Ongoing and unreleased personal projects I'm still working on!
           </p>
         </div>
 
